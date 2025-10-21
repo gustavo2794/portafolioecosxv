@@ -23,6 +23,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.vercel
 
 # local env files
 .env.local
@@ -30,15 +31,5 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# vercel
-.vercel
-
 # large media files
 *.mp4
-*.mov
-*.avi
-*.webm
-*.png
-*.jpg
-*.jpeg
-*.gif

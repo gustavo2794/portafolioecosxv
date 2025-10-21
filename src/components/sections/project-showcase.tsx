@@ -9,17 +9,20 @@ const projects = [
   {
     title: 'OPENING',
     id: 'project-5',
-    videoUrl: '/VID_20210925_200737.mp4',
+    // TODO: Replace with Firebase Storage URL
+    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/VID_20210925_200737.mp4?alt=media',
   },
   {
     title: 'Vals de Entrada',
     id: 'project-7',
-    videoUrl: '/Vals_Entrada.mp4',
+    // TODO: Replace with Firebase Storage URL
+    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/Vals_Entrada.mp4?alt=media',
   },
   {
     title: 'Vals Principal',
     id: 'project-6',
-    videoUrl: '/vals_principal.mp4',
+    // TODO: Replace with Firebase Storage URL
+    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/vals_principal.mp4?alt=media',
   },
   {
     title: 'El Bosque Encantado de Sofía',
