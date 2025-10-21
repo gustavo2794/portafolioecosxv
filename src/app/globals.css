@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 233 25% 95%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 45 80% 55%; /* Dorado Brillante */
+    --primary-foreground: 45 100% 15%;
+    --secondary: 215 40% 25%; /* Azul Marino Oscuro */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 25% 90%;
+    --muted-foreground: 220 25% 45%;
+    --accent: 345 70% 35%; /* Rojo Vino Profundo */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 25% 85%;
+    --input: 220 25% 85%;
+    --ring: 45 80% 55%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222 47% 11%; /* Azul Marino Oscuro */
+    --foreground: 220 25% 95%;
+    --card: 222 40% 15%;
+    --card-foreground: 220 25% 95%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 220 25% 95%;
+    --primary: 45 80% 60%; /* Dorado Brillante (más claro) */
+    --primary-foreground: 45 100% 15%;
+    --secondary: 215 30% 35%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 30% 20%;
+    --muted-foreground: 220 25% 65%;
+    --accent: 345 70% 45%; /* Rojo Vino Profundo (más claro) */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 45 80% 60%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-gloss {
+    @apply bg-gradient-to-b from-white/20 to-transparent;
+  }
+  .shine-effect {
+    @apply bg-gradient-to-b from-primary/20 to-transparent;
+  }
+}

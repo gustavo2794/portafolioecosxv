@@ -1,0 +1,76 @@
+{
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "Una vibrante y moderna celebración de baile de XV Años.",
+      "imageUrl": "https://images.unsplash.com/photo-1582615005712-73d2890356cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxxdWluY2VhbmVyYSUyMGRhbmNlfGVufDB8fHx8MTc2MTA0MzUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "quinceanera dance"
+    },
+    {
+      "id": "project-2",
+      "description": "Elegante presentación de vals con la corte de honor.",
+      "imageUrl": "https://images.unsplash.com/photo-1575448913281-98e9e5d3f193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYWxscm9vbSUyMGRhbmNpbmd8ZW58MHx8fHwxNzYxMDQzNTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ballroom dancing"
+    },
+    {
+      "id": "project-3",
+      "description": "Un baile sorpresa de bachata que maravilló a los invitados.",
+      "imageUrl": "https://images.unsplash.com/photo-1563385069264-7685ff860987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmFjaGF0YSUyMGRhbmNlfGVufDB8fHx8MTc2MTA0MzUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bachata dance"
+    },
+    {
+      "id": "project-4",
+      "description": "Baile temático inspirado en un cuento de hadas.",
+      "imageUrl": "https://images.unsplash.com/photo-1633375554123-f2b821f9a68e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYWlyeXRhbGUlMjBwcmluY2Vzc3xlbnwwfHx8fDE3NjEwNDM1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fairytale princess"
+    },
+    {
+      "id": "project-5",
+      "description": "Presentacion de quinceañera con tematica de arlequines",
+      "imageUrl": "/Screenshot_20251015-225602.png",
+      "imageHint": "harlequin dance"
+    },
+    {
+      "id": "project-6",
+      "description": "El emotivo vals principal de la quinceañera.",
+      "imageUrl": "/vals_principal.png",
+      "imageHint": "quinceanera waltz"
+    },
+    {
+      "id": "project-7",
+      "description": "Una interpretación moderna y dinámica del tradicional vals de entrada.",
+      "imageUrl": "/Vals_Entrada.png",
+      "imageHint": "quinceanera entrance modern"
+    },
+    {
+      "id": "choreography-1",
+      "description": "Clásico y elegante, el vals es una opción atemporal para el baile principal.",
+      "imageUrl": "https://images.unsplash.com/photo-1635164416977-192869952a6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3YWx0eiUyMGRhbmNlfGVufDB8fHx8MTc2MTA0MzUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "waltz dance"
+    },
+    {
+      "id": "choreography-2",
+      "description": "Alegre y rítmica, la salsa añade una explosión de energía y diversión.",
+      "imageUrl": "https://images.unsplash.com/photo-1720811755805-a76bc5a7e433?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzYWxzYSUyMGRhbmNpbmd8ZW58MHx8fHwxNzYxMDQzNTAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "salsa dancing"
+    },
+    {
+      "id": "choreography-3",
+      "description": "Sensual y romántica, la bachata es perfecta para un baile de padre e hija.",
+      "imageUrl": "https://images.unsplash.com/photo-1685519641913-5f3e95d5a54b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBkYW5jaW5nfGVufDB8fHx8MTc2MTA0MzUwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "couple dancing"
+    },
+    {
+      "id": "choreography-4",
+      "description": "Moderno y expresivo, el contemporáneo permite una narración creativa.",
+      "imageUrl": "https://images.unsplash.com/photo-1547153760-18fc86324498?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb250ZW1wb3JhcnklMjBkYW5jZXxlbnwwfHx8fDE3NjEwNDM1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "contemporary dance"
+    },
+    {
+      "id": "hero-background",
+      "description": "Una impresionante foto de una quinceañera en su vestido, lista para bailar.",
+      "imageUrl": "/XV_1.png",
+      "imageHint": "quinceanera portrait"
+    }
+  ]
+}
