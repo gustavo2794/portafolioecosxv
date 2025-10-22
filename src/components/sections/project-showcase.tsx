@@ -10,7 +10,7 @@ const projects = [
     title: 'OPENING',
     id: 'project-5',
     // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
-    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
+    youtubeVideoId: 'xvStAvolUQU', // ID de ejemplo
   },
   {
     title: 'Vals de Entrada',
@@ -42,6 +42,33 @@ const projects = [
   },
 ];
 
+// Función para extraer el ID de video de una URL de YouTube
+const getYouTubeId = (urlOrId: string): string => {
+  // Si ya es solo el ID, devuélvelo
+  if (!urlOrId.includes('http')) {
+    return urlOrId;
+  }
+  try {
+    const url = new URL(urlOrId);
+    if (url.hostname === 'youtu.be') {
+      return url.pathname.slice(1);
+    }
+    if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
+      if (url.pathname === '/watch') {
+        return url.searchParams.get('v') || '';
+      }
+      if (url.pathname.startsWith('/embed/')) {
+        return url.pathname.split('/embed/')[1];
+      }
+    }
+  } catch (error) {
+    console.error('Invalid YouTube URL:', urlOrId);
+    return urlOrId; // Devuelve el original si falla el parseo
+  }
+  return urlOrId; // Devuelve el original si no se encuentra el ID
+};
+
+
 const ProjectShowcase = () => {
   return (
     <section
@@ -68,8 +95,9 @@ const ProjectShowcase = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project) => {
             const image = PlaceHolderImages.find((img) => img.id === project.id);
+            const videoId = project.youtubeVideoId ? getYouTubeId(project.youtubeVideoId) : null;
 
-            if (project.youtubeVideoId) {
+            if (videoId) {
               return (
                 <Dialog key={project.id}>
                   <DialogTrigger asChild>
@@ -97,7 +125,7 @@ const ProjectShowcase = () => {
                   <DialogContent className="max-w-4xl p-0 aspect-video">
                      <iframe 
                         className="w-full h-full" 
-                        src={`https://www.youtube.com/embed/${project.youtubeVideoId}`}
+                        src={`https://www.youtube.com/embed/${videoId}`}
                         title="YouTube video player" 
                         frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
