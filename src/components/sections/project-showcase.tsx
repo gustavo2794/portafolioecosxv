@@ -9,7 +9,7 @@ const projects = [
   {
     title: 'OPENING',
     id: 'project-5',
-    youtubeVideoId: 'https://youtu.be/xvStAvolUQU',
+    youtubeVideoId: 'https://www.youtube.com/watch?v=xvStAvolUQU',
   },
   {
     title: 'Vals de Entrada',
