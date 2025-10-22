@@ -9,20 +9,20 @@ const projects = [
   {
     title: 'OPENING',
     id: 'project-5',
-    // TODO: Replace with Firebase Storage URL
-    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/VID_20210925_200737.mp4?alt=media',
+    // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
+    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
   },
   {
     title: 'Vals de Entrada',
     id: 'project-7',
-    // TODO: Replace with Firebase Storage URL
-    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/Vals_Entrada.mp4?alt=media',
+    // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
+    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
   },
   {
     title: 'Vals Principal',
     id: 'project-6',
-    // TODO: Replace with Firebase Storage URL
-    videoUrl: 'https://firebasestorage.googleapis.com/v0/b/your-project-id.appspot.com/o/vals_principal.mp4?alt=media',
+    // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
+    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
   },
   {
     title: 'El Bosque Encantado de Sofía',
@@ -69,7 +69,7 @@ const ProjectShowcase = () => {
           {projects.map((project) => {
             const image = PlaceHolderImages.find((img) => img.id === project.id);
 
-            if (project.videoUrl) {
+            if (project.youtubeVideoId) {
               return (
                 <Dialog key={project.id}>
                   <DialogTrigger asChild>
@@ -94,17 +94,15 @@ const ProjectShowcase = () => {
                       </CardContent>
                     </Card>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0">
-                    <DialogHeader className="p-4">
-                      <DialogTitle>Video de Presentación</DialogTitle>
-                      <DialogDescription>
-                        {project.title} - {image?.description || ''}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <video width="100%" height="auto" controls autoPlay>
-                      <source src={project.videoUrl} type="video/mp4" />
-                      Tu navegador no soporta el tag de video.
-                    </video>
+                  <DialogContent className="max-w-4xl p-0 aspect-video">
+                     <iframe 
+                        className="w-full h-full" 
+                        src={`https://www.youtube.com/embed/${project.youtubeVideoId}`}
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen>
+                    </iframe>
                   </DialogContent>
                 </Dialog>
               );

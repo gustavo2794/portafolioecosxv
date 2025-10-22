@@ -1,35 +1,20 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# System files
 .DS_Store
-*.pem
+.env*.local
+node_modules/
+.next/
+out/
+.vercel/
 
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.vercel
+pnpm-debug.log*
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# large media files
+# Video files - We use YouTube or Vimeo for hosting
 *.mp4
+*.mov
+*.avi
+*.webm
+*.mkv
