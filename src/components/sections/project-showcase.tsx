@@ -22,6 +22,11 @@ const projects = [
     youtubeVideoId: 'https://youtu.be/Ihajp1w0rxA',
   },
   {
+    title: 'Mix Reggaeton',
+    id: 'project-mix-reggaeton',
+    youtubeVideoId: 'https://youtu.be/1ISY6kLm6Cg',
+  },
+  {
     title: 'El Bosque Encantado de Sofía',
     id: 'project-1',
   },
