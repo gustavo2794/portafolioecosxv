@@ -26,22 +26,6 @@ const projects = [
     id: 'project-mix-reggaeton',
     youtubeVideoId: 'https://youtu.be/1ISY6kLm6Cg',
   },
-  {
-    title: 'El Bosque Encantado de Sofía',
-    id: 'project-1',
-  },
-  {
-    title: 'El Baile Real de Isabella',
-    id: 'project-2',
-  },
-  {
-    title: 'La Fiesta Salsera de Camila',
-    id: 'project-3',
-  },
-  {
-    title: 'El Cuento de Hadas de Valentina',
-    id: 'project-4',
-  },
 ];
 
 // Función para extraer el ID de video de una URL de YouTube

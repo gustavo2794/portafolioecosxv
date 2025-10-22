@@ -1,30 +1,6 @@
 {
   "placeholderImages": [
     {
-      "id": "project-1",
-      "description": "Una vibrante y moderna celebración de baile de XV Años.",
-      "imageUrl": "https://images.unsplash.com/photo-1582615005712-73d2890356cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxxdWluY2VhbmVyYSUyMGRhbmNlfGVufDB8fHx8MTc2MTA0MzUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "quinceanera dance"
-    },
-    {
-      "id": "project-2",
-      "description": "Elegante presentación de vals con la corte de honor.",
-      "imageUrl": "https://images.unsplash.com/photo-1575448913281-98e9e5d3f193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYWxscm9vbSUyMGRhbmNpbmd8ZW58MHx8fHwxNzYxMDQzNTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ballroom dancing"
-    },
-    {
-      "id": "project-3",
-      "description": "Un baile sorpresa de bachata que maravilló a los invitados.",
-      "imageUrl": "https://images.unsplash.com/photo-1563385069264-7685ff860987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmFjaGF0YSUyMGRhbmNlfGVufDB8fHx8MTc2MTA0MzUwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "bachata dance"
-    },
-    {
-      "id": "project-4",
-      "description": "Baile temático inspirado en un cuento de hadas.",
-      "imageUrl": "https://images.unsplash.com/photo-1633375554123-f2b821f9a68e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYWlyeXRhbGUlMjBwcmluY2Vzc3xlbnwwfHx8fDE3NjEwNDM1MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "fairytale princess"
-    },
-    {
       "id": "project-5",
       "description": "Presentacion de quinceañera con tematica de arlequines",
       "imageUrl": "/Screenshot_20251015-225602.png",
