@@ -26,7 +26,7 @@ const allFeatures = [
   { id: 'mix-moderno-1', label: 'Mix moderno 1' },
   { id: 'mix-moderno-2', label: 'Mix moderno 2' },
   { id: 'vestuario', label: 'Vestuario para bailarines y quinceañera' },
-  { id: 'pirotecnia', label: 'Pirotecnia (lanza llamas y chisperos)' },
+  { id: 'pirotecnia', label: 'Pirotecnia' },
 ];
 
 export default function CustomPackageBuilder({ children }: { children: React.ReactNode }) {
