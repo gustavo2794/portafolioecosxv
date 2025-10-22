@@ -244,7 +244,7 @@ const Pricing = () => {
                 </Card>
             </CustomPackageBuilder>
         </div>
-        <div className="text-center mt-12 text-white/70 text-sm">
+        <div className="text-center mt-16 text-white/70 text-base">
             <p>*Precios sujetos a cambio sin previo aviso</p>
         </div>
       </div>
