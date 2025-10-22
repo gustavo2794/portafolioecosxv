@@ -87,7 +87,7 @@ const packages = [
             'Mix moderno 2',
             '4 Bailarines',
             'Vestuario para bailarines y quinceañera',
-            'Pirotecnia (lanza llamas y chisperos)'
+            'Pirotecnia'
         ],
         whatsappMessage: 'Hola, Estoy interesad@ en el paquete Diamante.',
         bgColor: 'bg-purple-500/10',
@@ -244,7 +244,7 @@ const Pricing = () => {
                 </Card>
             </CustomPackageBuilder>
         </div>
-        <div className="text-center mt-12 text-white/70 text-sm">
+        <div className="text-center mt-24 text-white/70 text-xl">
             <p>*Precios sujetos a cambio sin previo aviso</p>
         </div>
       </div>
@@ -253,4 +253,3 @@ const Pricing = () => {
 };
 
 export default Pricing;
-    
