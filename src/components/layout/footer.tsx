@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col items-center text-center">
           <Image
-            src="/favicon.ico"
+            src="/Letra E Ecos.png"
             alt="Logo Ecos del Sur"
             width={40}
             height={40}
