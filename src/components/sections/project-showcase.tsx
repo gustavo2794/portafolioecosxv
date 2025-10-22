@@ -15,7 +15,7 @@ const projects = [
     title: 'Vals de Entrada',
     id: 'project-7',
     // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
-    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
+    youtubeVideoId: 'https://youtu.be/V_wTqHT3Mh0', // ID de ejemplo
   },
   {
     title: 'Vals Principal',
