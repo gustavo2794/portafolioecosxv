@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const projects = [
@@ -22,20 +22,9 @@ const projects = [
     youtubeVideoId: 'https://youtu.be/Ihajp1w0rxA',
   },
   {
-    title: 'El Bosque Encantado de Sofía',
-    id: 'project-1',
-  },
-  {
-    title: 'El Baile Real de Isabella',
-    id: 'project-2',
-  },
-  {
-    title: 'La Fiesta Salsera de Camila',
-    id: 'project-3',
-  },
-  {
-    title: 'El Cuento de Hadas de Valentina',
-    id: 'project-4',
+    title: 'Mix Reggaeton',
+    id: 'project-mix-reggaeton',
+    youtubeVideoId: 'https://youtu.be/1ISY6kLm6Cg',
   },
 ];
 
@@ -122,6 +111,7 @@ const ProjectShowcase = () => {
                   </DialogTrigger>
                   <DialogContent className="max-w-4xl p-0 aspect-video bg-black">
                      <DialogTitle className="sr-only">{project.title}</DialogTitle>
+                     <DialogDescription className="sr-only">Video de YouTube para el proyecto: {project.title}</DialogDescription>
                      <iframe 
                         className="w-full h-full" 
                         src={`https://www.youtube.com/embed/${videoId}`}
