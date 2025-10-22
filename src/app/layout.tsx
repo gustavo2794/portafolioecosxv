@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: 'Compañia de Danza Ecos del Sur',
   description: 'XV Años Dance Choreography by Ecos Del Sur',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/Letra E Ecos.png',
   },
 };
 
