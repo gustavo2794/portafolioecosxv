@@ -41,6 +41,7 @@ const projects = [
 
 // Función para extraer el ID de video de una URL de YouTube
 const getYouTubeId = (urlOrId: string): string => {
+  if (!urlOrId) return '';
   // Si ya es solo el ID, devuélvelo
   if (!urlOrId.includes('http')) {
     return urlOrId;
@@ -48,14 +49,14 @@ const getYouTubeId = (urlOrId: string): string => {
   try {
     const url = new URL(urlOrId);
     if (url.hostname === 'youtu.be') {
-      return url.pathname.slice(1);
+      return url.pathname.slice(1).split('?')[0];
     }
     if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
       if (url.pathname === '/watch') {
         return url.searchParams.get('v') || '';
       }
       if (url.pathname.startsWith('/embed/')) {
-        return url.pathname.split('/embed/')[1];
+        return url.pathname.split('/embed/')[1].split('?')[0];
       }
     }
   } catch (error) {
