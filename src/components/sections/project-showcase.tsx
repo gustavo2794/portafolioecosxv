@@ -19,8 +19,7 @@ const projects = [
   {
     title: 'Vals Principal',
     id: 'project-6',
-    // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
-    youtubeVideoId: 'dQw4w9WgXcQ', // ID de ejemplo
+    youtubeVideoId: 'https://youtu.be/Ihajp1w0rxA',
   },
   {
     title: 'El Bosque Encantado de Sofía',
