@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const projects = [
@@ -10,7 +10,7 @@ const projects = [
     title: 'OPENING',
     id: 'project-5',
     // TODO: Reemplaza 'YOUTUBE_VIDEO_ID' con el ID de tu video de YouTube
-    youtubeVideoId: 'xvStAvolUQU', // ID de ejemplo
+    youtubeVideoId: 'https://youtu.be/xvStAvolUQU', // ID de ejemplo
   },
   {
     title: 'Vals de Entrada',
@@ -122,7 +122,7 @@ const ProjectShowcase = () => {
                       </CardContent>
                     </Card>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0 aspect-video">
+                  <DialogContent className="max-w-4xl p-0 aspect-video bg-black">
                      <iframe 
                         className="w-full h-full" 
                         src={`https://www.youtube.com/embed/${videoId}`}
