@@ -14,6 +14,7 @@ const galleryImageIds = ['project-sahory', 'project-zayuri', 'project-5', 'proje
 const galleryProjects = PlaceHolderImages.filter(p => galleryImageIds.includes(p.id));
 
 
+
 const ChoreographyCatalog = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
