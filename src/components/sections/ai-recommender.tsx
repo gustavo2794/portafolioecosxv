@@ -10,6 +10,8 @@ import { Label } from '@/components/ui/label';
 import { Sparkles, Bot, Feather, Wand2, PackageCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '../ui/skeleton';
+import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
+import { Switch } from '../ui/switch';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -45,9 +47,7 @@ export default function AiRecommender() {
         description: state.message,
       });
     }
-    if (state.message === 'Success') {
-      formRef.current?.reset();
-    }
+    // We don't reset the form on success anymore, so the user can see their choices
   }, [state, toast]);
 
   return (
@@ -59,23 +59,53 @@ export default function AiRecommender() {
               <CardHeader>
                 <div className="flex items-center gap-2 text-primary">
                     <Wand2 className="h-8 w-8"/>
-                    <CardTitle className="font-headline text-3xl">Asistente de Coreografía AI</CardTitle>
+                    <CardTitle className="font-headline text-3xl">Asistente de Coreografía IA</CardTitle>
                 </div>
                 <CardDescription>
-                  ¿No estás seguro por dónde empezar? Describe el tema y la música de tu evento, y deja que nuestra IA te sugiera los estilos de baile y el paquete ideal para ti.
+                  Responde estas preguntas y nuestra IA te recomendará el paquete perfecto para ti.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="theme">Tema del Evento</Label>
-                  <Input id="theme" name="theme" placeholder="Ej: 'Bosque Encantado', 'Glamour de Hollywood'" />
-                  {state.errors?.theme && <p className="text-sm text-destructive">{state.errors.theme[0]}</p>}
+              <CardContent className="space-y-6">
+                
+                <div className="space-y-3">
+                  <Label>Además de los valses, ¿cuántos bailes modernos te gustaría tener?</Label>
+                  <RadioGroup name="numModernDances" defaultValue="1" className="flex gap-4">
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="0" id="r1" />
+                      <Label htmlFor="r1">Ninguno</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="1" id="r2" />
+                      <Label htmlFor="r2">1 Mix Moderno</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="2" id="r3" />
+                      <Label htmlFor="r3">2 Mixes Modernos</Label>
+                    </div>
+                  </RadioGroup>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="music">Estilo de Música</Label>
-                  <Input id="music" name="music" placeholder="Ej: 'Pop Moderno', 'Vals Clásico', 'Mix Latino'" />
-                  {state.errors?.music && <p className="text-sm text-destructive">{state.errors.music[0]}</p>}
+
+                <div className="flex items-center justify-between rounded-lg border p-3 shadow-sm">
+                  <div className="space-y-0.5">
+                    <Label>¿Te interesa un show de apertura (Opening)?</Label>
+                     <CardDescription className="text-xs">Ideal para un inicio espectacular.</CardDescription>
+                  </div>
+                  <Switch id="wantsOpeningShow" name="wantsOpeningShow" />
                 </div>
+
+                 <div className="flex items-center justify-between rounded-lg border p-3 shadow-sm">
+                  <div className="space-y-0.5">
+                    <Label>¿Te gustaría tener bailarines profesionales?</Label>
+                     <CardDescription className="text-xs">Añaden un toque profesional a tu evento.</CardDescription>
+                  </div>
+                  <Switch id="wantsProfessionalDancers" name="wantsProfessionalDancers" />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="musicGenres">¿Qué géneros de música te gustan? (Opcional)</Label>
+                  <Input id="musicGenres" name="musicGenres" placeholder="Ej: 'Reggaeton, Bachata, Pop...'" />
+                </div>
+
               </CardContent>
               <CardFooter>
                 <SubmitButton />
@@ -84,7 +114,7 @@ export default function AiRecommender() {
           </Card>
         </div>
         <div className="order-1 md:order-2">
-            <h2 className="font-headline text-4xl font-bold mb-4">Tus Sugerencias Personalizadas</h2>
+            <h2 className="font-headline text-4xl font-bold mb-4">Tu Sugerencia Personalizada</h2>
             {pending && (
                 <div className="space-y-6">
                     <Skeleton className="h-10 w-3/4" />
@@ -105,17 +135,19 @@ export default function AiRecommender() {
                         </h3>
                         <p className="text-xl font-semibold bg-primary/10 text-primary-foreground border border-primary/20 rounded-lg px-4 py-2 inline-block">{state.data.recommendedPackage}</p>
                     </div>
-                    <div>
-                        <h3 className="font-headline text-2xl text-primary mb-3">Estilos Sugeridos</h3>
-                        <ul className="space-y-2 list-none">
-                            {state.data.suggestedStyles.map((style, index) => (
-                                <li key={index} className="flex items-center gap-2">
-                                    <Feather className="h-4 w-4 text-accent"/>
-                                    <span>{style}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    {state.data.suggestedStyles.length > 0 && (
+                      <div>
+                          <h3 className="font-headline text-2xl text-primary mb-3">Ideas de Coreografía</h3>
+                          <ul className="space-y-2 list-none">
+                              {state.data.suggestedStyles.map((style, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                      <Feather className="h-4 w-4 text-accent"/>
+                                      <span>{style}</span>
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                    )}
                     <div>
                         <h3 className="font-headline text-2xl text-primary mb-3">Nuestro Razonamiento</h3>
                         <p className="text-muted-foreground">{state.data.reasoning}</p>
@@ -123,7 +155,9 @@ export default function AiRecommender() {
                 </div>
             ) : !pending && (
                 <div className="text-center md:text-left text-muted-foreground p-8 border-2 border-dashed rounded-lg">
-                    <p>Tus sugerencias de baile y el paquete ideal aparecerán aquí una vez que completes el formulario.</p>
+                    <Bot className="h-12 w-12 mx-auto md:mx-0 mb-4 text-muted-foreground/50"/>
+                    <p>Completa el formulario de la izquierda y tu recomendación personalizada aparecerá aquí.</p>
+                    <p className="text-sm mt-2">¡Es rápido, fácil y te ayudará a encontrar el plan perfecto para tu fiesta!</p>
                 </div>
             )}
         </div>

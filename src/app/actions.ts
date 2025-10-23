@@ -3,15 +3,19 @@ import { suggestChoreography } from '@/ai/flows/ai-suggest-choreography';
 import { z } from 'zod';
 
 const schema = z.object({
-  theme: z.string().min(3, { message: 'El tema debe tener al menos 3 caracteres.' }),
-  music: z.string().min(3, { message: 'El estilo de música debe tener al menos 3 caracteres.' }),
+  numModernDances: z.enum(['0', '1', '2']),
+  wantsOpeningShow: z.preprocess(value => value === 'on', z.boolean()),
+  wantsProfessionalDancers: z.preprocess(value => value === 'on', z.boolean()),
+  musicGenres: z.string().optional(),
 });
 
 export type FormState = {
   message: string;
   errors?: {
-    theme?: string[];
-    music?: string[];
+    numModernDances?: string[];
+    wantsOpeningShow?: string[];
+    wantsProfessionalDancers?: string[];
+    musicGenres?: string[];
   };
   data?: {
     recommendedPackage: string;
@@ -24,9 +28,12 @@ export async function getAiSuggestions(
   prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
+
   const validatedFields = schema.safeParse({
-    theme: formData.get('theme'),
-    music: formData.get('music'),
+    numModernDances: formData.get('numModernDances'),
+    wantsOpeningShow: formData.get('wantsOpeningShow'),
+    wantsProfessionalDancers: formData.get('wantsProfessionalDancers'),
+    musicGenres: formData.get('musicGenres'),
   });
 
   if (!validatedFields.success) {
