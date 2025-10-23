@@ -17,7 +17,6 @@ const navLinks = [
   { href: '/projects', label: 'Proyectos' },
   { href: '/gallery', label: 'Galería' },
   { href: '/packages', label: 'Paquetes' },
-  { href: '/ai-recommender', label: 'Recomendador AI' },
 ];
 
 const Header = () => {
