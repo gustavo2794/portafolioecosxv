@@ -1,5 +1,5 @@
 'use server';
-import { suggestChoreography } from '@/ai/flows/ai-suggest-choreography';
+import { suggestChoreography, SuggestChoreographyInput } from '@/ai/flows/ai-suggest-choreography';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -37,6 +37,7 @@ export async function getAiSuggestions(
   });
 
   if (!validatedFields.success) {
+    console.error('Validation Errors:', validatedFields.error.flatten().fieldErrors);
     return {
       message: 'Datos de formulario no válidos. Por favor, revisa tus entradas.',
       errors: validatedFields.error.flatten().fieldErrors,
@@ -44,14 +45,14 @@ export async function getAiSuggestions(
   }
 
   try {
-    const result = await suggestChoreography(validatedFields.data);
+    const result = await suggestChoreography(validatedFields.data as SuggestChoreographyInput);
     if (result) {
         return { message: 'Success', data: result };
     } else {
         return { message: 'La IA no pudo generar una sugerencia. Por favor, inténtalo de nuevo.' };
     }
   } catch (error) {
-    console.error(error);
+    console.error('Error getting AI suggestions:', error);
     return { message: 'Ocurrió un error inesperado al obtener las sugerencias.' };
   }
 }
