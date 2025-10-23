@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -120,7 +119,7 @@ const ProjectShowcase = () => {
                      <DialogDescription className="sr-only">Video de YouTube para el proyecto: {project.title}</DialogDescription>
                      <iframe 
                         className="w-full h-full" 
-                        src={`https://www.youtube.com/embed/${videoId}`}
+                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
                         title="YouTube video player" 
                         frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
