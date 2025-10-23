@@ -42,9 +42,9 @@ const ChoreographyCatalog = () => {
         <Image
           src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png"
           alt="Ecos del Sur Watermark"
-          width={500}
-          height={500}
-          className="opacity-20"
+          fill
+          sizes="100vw"
+          className="object-contain opacity-20"
           priority
         />
       </div>
@@ -66,7 +66,7 @@ const ChoreographyCatalog = () => {
                 height={750}
                 className="object-cover w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={project.imageHint}
-                priority={index < 4} 
+                priority={index < 2} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h3 className="text-white font-bold text-lg -translate-y-4 group-hover:translate-y-0 transition-transform">
