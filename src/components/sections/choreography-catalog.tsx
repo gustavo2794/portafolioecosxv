@@ -2,31 +2,10 @@
 
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, GalleryVertical } from 'lucide-react';
-import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
-const categories = [
-  {
-    title: 'XV Años',
-    description: 'Coreografías espectaculares y elegantes para hacer de tu fiesta un sueño hecho realidad.',
-    imageId: 'project-6',
-    link: '#', // En el futuro, esto podría llevar a /gallery/xv-anos
-  },
-  {
-    title: 'Eventos de Kinder',
-    description: 'Bailes divertidos y creativos para los festivales y graduaciones de los más pequeños.',
-    imageId: 'project-5', // Usaremos una imagen existente como placeholder
-    link: '#', // En el futuro, esto podría llevar a /gallery/kinder
-  },
-  {
-    title: 'Proyectos Culturales',
-    description: 'Presentaciones de danza que exploran la riqueza y diversidad del folklore y la cultura.',
-    imageId: 'project-7', // Usaremos una imagen existente como placeholder
-    link: '#', // En el futuro, esto podría llevar a /gallery/cultural
-  },
-];
-
+const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-'));
 
 const ChoreographyCatalog = () => {
   return (
@@ -35,41 +14,45 @@ const ChoreographyCatalog = () => {
         <div className="text-center mb-12">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">Nuestra Galería</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-            Explora una selección de los momentos mágicos y coreografías que hemos creado para diferentes eventos.
+            Explora una selección de los momentos mágicos y coreografías que hemos creado. Cada imagen cuenta la historia de un sueño hecho realidad.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category) => {
-            const image = PlaceHolderImages.find((img) => img.id === category.imageId);
-            return (
-              <Link href={category.link} key={category.title} className="block group">
-                <Card className="bg-card overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-primary/30 hover:-translate-y-2 shadow-lg">
-                  {image && (
-                    <div className="relative aspect-video">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {galleryProjects.map((project) => (
+             <Dialog key={project.id}>
+              <DialogTrigger asChild>
+                <Card className="overflow-hidden cursor-pointer group relative">
+                    <div className="aspect-square">
                       <Image
-                        src={image.imageUrl}
-                        alt={category.title}
+                        src={project.imageUrl}
+                        alt={project.description}
                         fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={image.imageHint}
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        data-ai-hint={project.imageHint}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    </div>
-                  )}
-                  <CardHeader>
-                    <CardTitle className="font-headline text-2xl text-foreground">{category.title}</CardTitle>
-                    <CardDescription>{category.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="mt-auto flex justify-end">
-                      <div className="flex items-center text-sm font-semibold text-primary group-hover:underline">
-                        Ver más <ArrowRight className="ml-2 h-4 w-4" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                        <h3 className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-4 group-hover:translate-y-0">
+                          {project.description}
+                        </h3>
                       </div>
-                  </CardContent>
+                    </div>
                 </Card>
-              </Link>
-            );
-          })}
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl p-0 bg-background/80 backdrop-blur-lg">
+                 <DialogTitle className="sr-only">{project.description}</DialogTitle>
+                 <DialogDescription className="sr-only">Imagen de la galería: {project.description}</DialogDescription>
+                 <div className="aspect-video relative">
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.description}
+                      fill
+                      className="object-contain"
+                    />
+                 </div>
+              </DialogContent>
+            </Dialog>
+          ))}
         </div>
       </div>
     </section>

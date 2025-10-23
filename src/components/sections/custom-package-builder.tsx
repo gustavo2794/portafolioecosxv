@@ -71,7 +71,7 @@ export default function CustomPackageBuilder({ children }: { children: React.Rea
       return;
     }
 
-    let message = `Hola, mi nombre es ${name}. Me gustaría solicitar una cotización para un paquete personalizado.\n`;
+    let message = `Hola, mi nombre es ${name}. Me gustaría solicitar una cotización para un paquete personalizado de XV Años.\n`;
 
     if (date) {
       message += `La fecha de mi evento es el ${format(date, 'PPP', { locale: es })}.\n\n`;
@@ -127,7 +127,7 @@ export default function CustomPackageBuilder({ children }: { children: React.Rea
               </div>
               <div className="flex items-center justify-between space-x-3 bg-card p-3 rounded-lg border">
                   <Label htmlFor="bailarines" className="text-sm font-medium">
-                    Bailarines
+                    Bailarines para XV Años
                   </Label>
                   <Select value={numBailarines} onValueChange={setNumBailarines}>
                     <SelectTrigger className="w-[180px]">
