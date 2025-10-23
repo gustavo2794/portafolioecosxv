@@ -9,8 +9,17 @@ const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-'
 
 const ChoreographyCatalog = () => {
   return (
-    <section id="choreography" className="py-16 lg:py-24 bg-background">
-      <div className="container">
+    <section id="choreography" className="py-16 lg:py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <Image
+                src="/Letra E Ecos.png"
+                alt="Ecos del Sur Watermark"
+                width={500}
+                height={500}
+                className="opacity-5"
+            />
+        </div>
+      <div className="container relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary">Nuestra Galería</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
