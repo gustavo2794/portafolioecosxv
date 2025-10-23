@@ -41,6 +41,7 @@ const prompt = ai.definePrompt({
   name: 'suggestChoreographyPrompt',
   input: {schema: SuggestChoreographyInputSchema},
   output: {schema: SuggestChoreographyOutputSchema},
+  model: 'googleai/gemini-1.5-flash-latest',
   prompt: `You are a professional choreographer and event planner for XV Años dances.
 Your goal is to recommend the best package and choreography styles based on the user's specific choices.
 
@@ -54,14 +55,17 @@ Analyze the user's explicit choices:
 - Preferred music genres: "{{{musicGenres}}}"
 
 Based on these choices, determine the most logical package.
-- If they want professional dancers and an opening show, Platinum or Diamante are the only options. Recommend Diamante for the "full experience".
-- If they don't want dancers/opening, the choice depends directly on the number of modern dances: '0' -> Básico, '1' -> Plata, '2' -> Oro.
-- If 'wantsOpeningShow' or 'wantsProfessionalDancers' is true, do not recommend Básico, Plata or Oro, as those packages do not include these features. Platinum is the minimum for those.
+- If 'wantsOpeningShow' is true OR 'wantsProfessionalDancers' is true, the recommendation MUST be 'Paquete Platinum' or 'Paquete Diamante'. Recommend 'Paquete Platinum' as the starting point for these features.
+- If BOTH 'wantsOpeningShow' and 'wantsProfessionalDancers' are true, recommend 'Paquete Platinum' but mention 'Paquete Diamante' is an upgrade for the full experience.
+- If 'wantsOpeningShow' and 'wantsProfessionalDancers' are both false, then the choice depends directly on the number of modern dances:
+  - '0' modern dances -> 'Paquete Básico'
+  - '1' modern dance -> 'Paquete Plata'
+  - '2' modern dances -> 'Paquete Oro'
 
-After choosing the package, if they provided music genres, suggest some fun choreography ideas based on those genres. If not, suggest some popular styles.
+After choosing the package, if the user provided music genres, suggest some fun choreography ideas based on those genres. If not, suggest some popular styles like 'Reggaeton, Cumbia, Pop'.
 Finally, provide a clear reasoning for your recommendation, explaining exactly why their choices led to your suggested package.
 
-Output the recommendation in a structured format.`,
+Output the recommendation in a structured JSON format.`,
 });
 
 const suggestChoreographyFlow = ai.defineFlow(
