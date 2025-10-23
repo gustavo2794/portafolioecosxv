@@ -17,8 +17,9 @@ const SuggestChoreographyInputSchema = z.object({
 export type SuggestChoreographyInput = z.infer<typeof SuggestChoreographyInputSchema>;
 
 const SuggestChoreographyOutputSchema = z.object({
+  recommendedPackage: z.string().describe('The name of the most suitable package (e.g., "Paquete Oro").'),
   suggestedStyles: z.array(z.string()).describe('An array of suggested choreography styles.'),
-  reasoning: z.string().describe('The reasoning behind the suggested styles.'),
+  reasoning: z.string().describe('The reasoning behind the suggested package and styles.'),
 });
 export type SuggestChoreographyOutput = z.infer<typeof SuggestChoreographyOutputSchema>;
 
@@ -26,16 +27,33 @@ export async function suggestChoreography(input: SuggestChoreographyInput): Prom
   return suggestChoreographyFlow(input);
 }
 
+const packagesInfo = `
+- Paquete Básico: Vals entrada, Vals protocolos, Vals principal. (El más sencillo)
+- Paquete Plata: Incluye lo del Básico + Vals familiar y un Mix moderno.
+- Paquete Oro: Incluye lo del Plata pero con dos Mixes modernos en lugar de uno.
+- Paquete Platinum: Incluye lo del Oro + un "Opening" (show de apertura) y 4 bailarines.
+- Paquete Diamante: El más completo. Incluye lo del Platinum + Vestuario para todos y Pirotecnia. (Full experience)
+`;
+
 const prompt = ai.definePrompt({
   name: 'suggestChoreographyPrompt',
   input: {schema: SuggestChoreographyInputSchema},
   output: {schema: SuggestChoreographyOutputSchema},
-  prompt: `You are a professional choreographer specializing in XV Años dances. Based on the theme and music provided, suggest suitable choreography styles. Provide a brief reasoning for each suggestion.
+  prompt: `You are a professional choreographer and event planner for XV Años dances.
+Your goal is to recommend the best package and choreography styles based on the user's theme and music.
 
+Here are the available packages:
+${packagesInfo}
+
+Analyze the user's request:
 Theme: {{{theme}}}
 Music: {{{music}}}
 
-Output the suggested styles and reasoning in a structured format.`,
+Based on the theme and music, first decide which package is the most suitable. A very elaborate theme like "Hollywood Glamour" might need the Diamante package, while something simple might only need the Básico or Plata.
+Then, suggest specific choreography styles that fit the theme and music.
+Finally, provide a clear reasoning for your recommendation, explaining why you chose that package and those styles.
+
+Output the recommendation in a structured format.`,
 });
 
 const suggestChoreographyFlow = ai.defineFlow(

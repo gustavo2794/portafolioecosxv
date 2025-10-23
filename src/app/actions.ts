@@ -14,6 +14,7 @@ export type FormState = {
     music?: string[];
   };
   data?: {
+    recommendedPackage: string;
     suggestedStyles: string[];
     reasoning: string;
   };

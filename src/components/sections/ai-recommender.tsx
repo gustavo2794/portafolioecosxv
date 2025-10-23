@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Sparkles, Bot, Feather, Wand2 } from 'lucide-react';
+import { Sparkles, Bot, Feather, Wand2, PackageCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '../ui/skeleton';
 
@@ -52,7 +52,7 @@ export default function AiRecommender() {
 
   return (
     <section id="ai-recommender" className="py-16 lg:py-24 bg-background">
-      <div className="container grid md:grid-cols-2 gap-12 items-center">
+      <div className="container grid md:grid-cols-2 gap-12 items-start">
         <div className="order-2 md:order-1">
           <Card>
             <form ref={formRef} action={formAction}>
@@ -62,7 +62,7 @@ export default function AiRecommender() {
                     <CardTitle className="font-headline text-3xl">Asistente de Coreografía AI</CardTitle>
                 </div>
                 <CardDescription>
-                  ¿No estás seguro por dónde empezar? Describe el tema y la música de tu evento, y deja que nuestra IA te sugiera los estilos de baile perfectos.
+                  ¿No estás seguro por dónde empezar? Describe el tema y la música de tu evento, y deja que nuestra IA te sugiera los estilos de baile y el paquete ideal para ti.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -86,19 +86,27 @@ export default function AiRecommender() {
         <div className="order-1 md:order-2">
             <h2 className="font-headline text-4xl font-bold mb-4">Tus Sugerencias Personalizadas</h2>
             {pending && (
-                <div className="space-y-4">
-                    <Skeleton className="h-8 w-1/2" />
+                <div className="space-y-6">
+                    <Skeleton className="h-10 w-3/4" />
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-4 w-3/4" />
                     <div className="h-8"></div>
                     <Skeleton className="h-8 w-1/3" />
                     <Skeleton className="h-4 w-5/6" />
+                    <Skeleton className="h-4 w-full" />
                 </div>
             )}
             {state.data ? (
-                <div className="space-y-6">
+                <div className="space-y-8">
+                     <div>
+                        <h3 className="font-headline text-2xl text-primary mb-3 flex items-center gap-2">
+                            <PackageCheck className="h-6 w-6"/>
+                            Paquete Recomendado
+                        </h3>
+                        <p className="text-xl font-semibold bg-primary/10 text-primary-foreground border border-primary/20 rounded-lg px-4 py-2 inline-block">{state.data.recommendedPackage}</p>
+                    </div>
                     <div>
-                        <h3 className="font-headline text-2xl text-primary mb-2">Estilos Sugeridos</h3>
+                        <h3 className="font-headline text-2xl text-primary mb-3">Estilos Sugeridos</h3>
                         <ul className="space-y-2 list-none">
                             {state.data.suggestedStyles.map((style, index) => (
                                 <li key={index} className="flex items-center gap-2">
@@ -109,13 +117,13 @@ export default function AiRecommender() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="font-headline text-2xl text-primary mb-2">Nuestro Razonamiento</h3>
+                        <h3 className="font-headline text-2xl text-primary mb-3">Nuestro Razonamiento</h3>
                         <p className="text-muted-foreground">{state.data.reasoning}</p>
                     </div>
                 </div>
             ) : !pending && (
                 <div className="text-center md:text-left text-muted-foreground p-8 border-2 border-dashed rounded-lg">
-                    <p>Tus sugerencias de baile creativas aparecerán aquí una vez que completes el formulario.</p>
+                    <p>Tus sugerencias de baile y el paquete ideal aparecerán aquí una vez que completes el formulario.</p>
                 </div>
             )}
         </div>
