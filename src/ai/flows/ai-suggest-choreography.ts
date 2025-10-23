@@ -10,7 +10,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-const SuggestChoreographyInputSchema = z.object({
+export const SuggestChoreographyInputSchema = z.object({
   numModernDances: z.enum(['0', '1', '2']).describe('The number of modern mix dances the user wants (0, 1, or 2).'),
   wantsOpeningShow: z.boolean().describe('Whether the user is interested in an opening show.'),
   wantsProfessionalDancers: z.boolean().describe('Whether the user wants professional dancers to accompany them.'),
@@ -18,16 +18,12 @@ const SuggestChoreographyInputSchema = z.object({
 });
 export type SuggestChoreographyInput = z.infer<typeof SuggestChoreographyInputSchema>;
 
-const SuggestChoreographyOutputSchema = z.object({
+export const SuggestChoreographyOutputSchema = z.object({
   recommendedPackage: z.string().describe('The name of the most suitable package (e.g., "Paquete Oro").'),
   suggestedStyles: z.array(z.string()).describe('An array of suggested choreography styles based on the music genres.'),
   reasoning: z.string().describe('The reasoning behind the suggested package and styles.'),
 });
 export type SuggestChoreographyOutput = z.infer<typeof SuggestChoreographyOutputSchema>;
-
-export async function suggestChoreography(input: SuggestChoreographyInput): Promise<SuggestChoreographyOutput> {
-  return suggestChoreographyFlow(input);
-}
 
 const packagesInfo = `
 - Paquete Básico: Vals entrada, Vals protocolos, Vals principal. (Ideal para 0 bailes modernos).
@@ -49,13 +45,13 @@ Here are the available packages:
 ${packagesInfo}
 
 Analyze the user's explicit choices:
-- Number of modern dances: "{{{numModernDances}}}"
-- Wants an opening show: {{{wantsOpeningShow}}}
-- Wants professional dancers: {{{wantsProfessionalDancers}}}
-- Preferred music genres: "{{{musicGenres}}}"
+- Number of modern dances: "{{numModernDances}}"
+- Wants an opening show: {{wantsOpeningShow}}
+- Wants professional dancers: {{wantsProfessionalDancers}}
+- Preferred music genres: "{{musicGenres}}"
 
 Based on these choices, determine the most logical package.
-- If 'wantsOpeningShow' is true OR 'wantsProfessionalDancers' is true, the recommendation MUST be 'Paquete Platinum' or 'Paquete Diamante'. Recommend 'Paquete Platinum' as the starting point for these features.
+- If 'wantsOpeningShow' is true OR 'wantsProfessionalDancers' is true, the recommendation MUST be 'Paquete Platinum'.
 - If BOTH 'wantsOpeningShow' and 'wantsProfessionalDancers' are true, recommend 'Paquete Platinum' but mention 'Paquete Diamante' is an upgrade for the full experience.
 - If 'wantsOpeningShow' and 'wantsProfessionalDancers' are both false, then the choice depends directly on the number of modern dances:
   - '0' modern dances -> 'Paquete Básico'
@@ -76,6 +72,13 @@ const suggestChoreographyFlow = ai.defineFlow(
   },
   async input => {
     const {output} = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error('AI failed to generate a suggestion.');
+    }
+    return output;
   }
 );
+
+export async function suggestChoreography(input: SuggestChoreographyInput): Promise<SuggestChoreographyOutput> {
+  return suggestChoreographyFlow(input);
+}
