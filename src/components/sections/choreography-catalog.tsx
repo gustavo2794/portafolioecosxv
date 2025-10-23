@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -12,7 +13,7 @@ const ChoreographyCatalog = () => {
     <section id="choreography" className="py-16 lg:py-24 bg-black relative overflow-hidden border-b-4 border-primary">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
-                src="/Letra E Ecos.png"
+                src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png"
                 alt="Ecos del Sur Watermark"
                 width={500}
                 height={500}

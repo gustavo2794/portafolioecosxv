@@ -1,3 +1,4 @@
+
 import { Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 
@@ -7,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col items-center text-center">
           <Image
-            src="/Letra E Ecos.png"
+            src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png"
             alt="Logo Ecos del Sur"
             width={40}
             height={40}

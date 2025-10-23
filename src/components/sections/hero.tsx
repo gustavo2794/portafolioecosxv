@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -22,7 +23,7 @@ const Hero = () => {
 
       <div className="relative z-10 flex flex-col items-center text-center px-4">
         <Image
-            src="/LOGO ECOS 2024.png"
+            src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183135/LOGO_ECOS_2024_cldy7v.png"
             alt="Logo Completo Ecos del Sur"
             width={400}
             height={133}

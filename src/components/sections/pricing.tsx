@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -167,13 +168,13 @@ const Pricing = () => {
   return (
     <section 
         className="pt-8 pb-16 lg:pb-24 bg-cover bg-center bg-no-repeat relative bg-fixed"
-        style={{ backgroundImage: "url('/Fondo_Paquetes.png')" }}
+        style={{ backgroundImage: "url('https://res.cloudinary.com/drylg7prb/image/upload/v1761188167/Fondo_Paquetes_1_fkmcrk.png')" }}
     >
         <div className="absolute inset-0 bg-black/60 z-0" />
       <div className="container relative z-10">
         <div className="text-center mb-12 flex flex-col items-center">
         <Image
-            src="/LOGO ECOS 2024.png"
+            src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183135/LOGO_ECOS_2024_cldy7v.png"
             alt="Logo Completo Ecos del Sur"
             width={480}
             height={160}

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -66,13 +67,13 @@ const ProjectShowcase = () => {
     <section
       id="projects"
       className="py-12 lg:pt-12 lg:pb-20 bg-cover bg-center bg-no-repeat relative bg-fixed"
-      style={{ backgroundImage: "url('/Fondo_Proyectos.png')" }}
+      style={{ backgroundImage: "url('https://res.cloudinary.com/drylg7prb/image/upload/v1761188173/Fondo_Proyectos_1_lpfdvp.png')" }}
     >
       <div className="absolute inset-0 bg-black/50 z-0" />
       <div className="container relative z-10">
         <div className="text-center mb-12 flex flex-col items-center">
             <Image
-                src="/LOGO ECOS 2024.png"
+                src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183135/LOGO_ECOS_2024_cldy7v.png"
                 alt="Logo Completo Ecos del Sur"
                 width={480}
                 height={160}
