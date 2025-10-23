@@ -10,7 +10,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const SuggestChoreographyInputSchema = z.object({
+const SuggestChoreographyInputSchema = z.object({
   numModernDances: z.enum(['0', '1', '2']).describe('The number of modern mix dances the user wants (0, 1, or 2).'),
   wantsOpeningShow: z.boolean().describe('Whether the user is interested in an opening show.'),
   wantsProfessionalDancers: z.boolean().describe('Whether the user wants professional dancers to accompany them.'),
@@ -18,7 +18,7 @@ export const SuggestChoreographyInputSchema = z.object({
 });
 export type SuggestChoreographyInput = z.infer<typeof SuggestChoreographyInputSchema>;
 
-export const SuggestChoreographyOutputSchema = z.object({
+const SuggestChoreographyOutputSchema = z.object({
   recommendedPackage: z.string().describe('The name of the most suitable package (e.g., "Paquete Oro").'),
   suggestedStyles: z.array(z.string()).describe('An array of suggested choreography styles based on the music genres.'),
   reasoning: z.string().describe('The reasoning behind the suggested package and styles.'),
