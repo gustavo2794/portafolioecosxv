@@ -16,7 +16,7 @@ const ChoreographyCatalog = () => {
                 alt="Ecos del Sur Watermark"
                 width={500}
                 height={500}
-                className=""
+                className="opacity-20"
             />
         </div>
       <div className="container relative z-10">
