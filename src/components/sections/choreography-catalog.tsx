@@ -45,6 +45,7 @@ const ChoreographyCatalog = () => {
           width={500}
           height={500}
           className="opacity-20"
+          style={{ height: 'auto' }}
         />
       </div>
       <div className="container relative z-10">
@@ -65,6 +66,7 @@ const ChoreographyCatalog = () => {
                 height={750}
                 className="object-cover w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={project.imageHint}
+                priority={index < 4} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h3 className="text-white font-bold text-lg -translate-y-4 group-hover:translate-y-0 transition-transform">
@@ -106,6 +108,7 @@ const ChoreographyCatalog = () => {
                     alt={currentProject.description}
                     fill
                     className="object-contain"
+                    priority
                   />
                 </div>
               )}
