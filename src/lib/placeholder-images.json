@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "project-zayuri",
+      "description": "Sesión de fotos de la quinceañera Zayuri.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202158/XV_Zayuri_slg8lh.png",
+      "imageHint": "quinceanera garden"
+    },
+    {
       "id": "project-5",
       "description": "Presentacion de quinceañera con tematica de arlequines",
       "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188199/min_opening_ywn6uw.png",
