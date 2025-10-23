@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '../ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -77,6 +77,14 @@ const ChoreographyCatalog = () => {
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogContent className="max-w-5xl w-full p-2 bg-black/80 backdrop-blur-lg border-primary/50 text-white flex items-center justify-center">
+            {currentProject && (
+              <>
+              <DialogTitle className="sr-only">Visor de Imágenes</DialogTitle>
+              <DialogDescription className="sr-only">
+                Imagen de la galería: {currentProject.description}. Usa las flechas para navegar.
+              </DialogDescription>
+              </>
+            )}
             <div className="relative w-full h-[80vh] flex items-center justify-center">
                 
               {/* Previous Button */}
