@@ -13,7 +13,6 @@ const Footer = () => {
             width={40}
             height={40}
             className="mb-3"
-            style={{ width: 'auto', height: '40px' }}
           />
           <p className="max-w-md mx-auto text-muted-foreground text-sm mb-3">
             Creando momentos inolvidables, un baile a la vez.

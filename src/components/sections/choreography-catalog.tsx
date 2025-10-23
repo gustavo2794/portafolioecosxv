@@ -45,7 +45,7 @@ const ChoreographyCatalog = () => {
           width={500}
           height={500}
           className="opacity-20"
-          style={{ height: 'auto' }}
+          priority
         />
       </div>
       <div className="container relative z-10">
