@@ -79,10 +79,10 @@ const ChoreographyCatalog = () => {
           <DialogContent className="max-w-5xl w-full p-2 bg-black/80 backdrop-blur-lg border-primary/50 text-white flex items-center justify-center">
             {currentProject && (
               <>
-              <DialogTitle className="sr-only">Visor de Imágenes</DialogTitle>
-              <DialogDescription className="sr-only">
-                Imagen de la galería: {currentProject.description}. Usa las flechas para navegar.
-              </DialogDescription>
+                <DialogTitle className="sr-only">Visor de Imágenes</DialogTitle>
+                <DialogDescription className="sr-only" id="gallery-dialog-description">
+                  Imagen de la galería: {currentProject.description}. Usa las flechas para navegar.
+                </DialogDescription>
               </>
             )}
             <div className="relative w-full h-[80vh] flex items-center justify-center">
