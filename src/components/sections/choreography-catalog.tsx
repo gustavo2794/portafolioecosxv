@@ -5,7 +5,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
-const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-'));
+const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-') || p.id.startsWith('hero-'));
 
 const ChoreographyCatalog = () => {
   return (
@@ -27,26 +27,25 @@ const ChoreographyCatalog = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
           {galleryProjects.map((project) => (
              <Dialog key={project.id}>
               <DialogTrigger asChild>
-                <Card className="overflow-hidden cursor-pointer group relative">
-                    <div className="aspect-square">
-                      <Image
-                        src={project.imageUrl}
-                        alt={project.description}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        data-ai-hint={project.imageHint}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                        <h3 className="text-white font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-4 group-hover:translate-y-0">
-                          {project.description}
-                        </h3>
-                      </div>
-                    </div>
-                </Card>
+                <div className="overflow-hidden cursor-pointer group relative break-inside-avoid">
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.description}
+                    width={500}
+                    height={750}
+                    className="object-cover w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={project.imageHint}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-white font-bold text-lg -translate-y-4 group-hover:translate-y-0 transition-transform">
+                      {project.description}
+                    </h3>
+                  </div>
+                </div>
               </DialogTrigger>
               <DialogContent className="max-w-4xl p-0 bg-background/80 backdrop-blur-lg">
                  <DialogTitle className="sr-only">{project.description}</DialogTitle>
