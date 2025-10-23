@@ -33,19 +33,19 @@
     {
       "id": "project-6",
       "description": "El emotivo vals principal de la quinceañera.",
-      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202158/XV_Zayuri_slg8lh.png",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188092/vals_principal_mma1bf.png",
       "imageHint": "quinceanera couple dance"
     },
     {
       "id": "project-mix-reggaeton",
       "description": "Mix de Reggaeton moderno para XV años.",
-      "imageUrl": "https://img.youtube.com/vi/1ISY6kLm6Cg/hqdefault.jpg",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188117/Mix_reggaeton_1_rpqirl.png",
       "imageHint": "group dance party"
     },
     {
       "id": "project-mix-salsa-merengue",
       "description": "Mix de Salsa y Merengue para XV años.",
-      "imageUrl": "https://img.youtube.com/vi/w0EEKnJdJFk/hqdefault.jpg",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188168/Mix_salsa_merengue_w24qxb.png",
       "imageHint": "salsa dancing couple"
     }
   ]
