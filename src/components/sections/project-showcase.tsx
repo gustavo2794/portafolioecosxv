@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: 'Vals Principal',
-    id: 'project-6',
+    "id": "project-6",
     youtubeVideoId: 'https://youtu.be/Ihajp1w0rxA',
   },
   {
