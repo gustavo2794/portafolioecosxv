@@ -9,7 +9,10 @@ import { Button } from '../ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-') || p.id.startsWith('hero-'));
+// Define explicitly which images should appear in the gallery
+const galleryImageIds = ['project-sahory', 'project-zayuri', 'project-5', 'project-7', 'hero-background'];
+const galleryProjects = PlaceHolderImages.filter(p => galleryImageIds.includes(p.id));
+
 
 const ChoreographyCatalog = () => {
   const [isOpen, setIsOpen] = useState(false);
