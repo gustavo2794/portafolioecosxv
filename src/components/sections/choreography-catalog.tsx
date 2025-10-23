@@ -9,7 +9,7 @@ const galleryProjects = PlaceHolderImages.filter(p => p.id.startsWith('project-'
 
 const ChoreographyCatalog = () => {
   return (
-    <section id="choreography" className="py-16 lg:py-24 bg-background relative overflow-hidden">
+    <section id="choreography" className="py-16 lg:py-24 bg-black relative overflow-hidden border-b-4 border-primary">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
                 src="/Letra E Ecos.png"
