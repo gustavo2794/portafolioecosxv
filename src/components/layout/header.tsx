@@ -15,8 +15,8 @@ import {
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/projects', label: 'Proyectos' },
-  { href: '/gallery', label: 'Galería' },
   { href: '/packages', label: 'Paquetes' },
+  { href: '/gallery', label: 'Galería' },
 ];
 
 const Header = () => {
