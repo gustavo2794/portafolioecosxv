@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "project-sahory",
+      "description": "Sesión de fotos de la quinceañera Sahory.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202685/XV_Sahory_hjsj9j.png",
+      "imageHint": "quinceanera dress"
+    },
+    {
       "id": "project-zayuri",
       "description": "Sesión de fotos de la quinceañera Zayuri.",
       "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202158/XV_Zayuri_slg8lh.png",
