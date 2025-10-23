@@ -25,6 +25,12 @@
       "imageHint": "reggaeton dance"
     },
     {
+      "id": "project-mix-salsa-merengue",
+      "description": "Mix de Salsa y Merengue para XV años.",
+      "imageUrl": "/Mix_salsa_merengue.png",
+      "imageHint": "salsa merengue dance"
+    },
+    {
       "id": "hero-background",
       "description": "Una impresionante foto de una quinceañera en su vestido, lista para bailar.",
       "imageUrl": "/XV_1.png",
