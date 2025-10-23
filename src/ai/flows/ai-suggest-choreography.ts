@@ -48,14 +48,14 @@ Here are the available packages:
 ${packagesInfo}
 
 Analyze the user's explicit choices:
-- Number of modern dances: {{{numModernDances}}}
+- Number of modern dances: "{{{numModernDances}}}"
 - Wants an opening show: {{{wantsOpeningShow}}}
 - Wants professional dancers: {{{wantsProfessionalDancers}}}
-- Preferred music genres: {{{musicGenres}}}
+- Preferred music genres: "{{{musicGenres}}}"
 
 Based on these choices, determine the most logical package.
 - If they want professional dancers and an opening show, Platinum or Diamante are the only options. Recommend Diamante for the "full experience".
-- If they don't want dancers/opening, the choice depends directly on the number of modern dances: 0 -> Básico, 1 -> Plata, 2 -> Oro.
+- If they don't want dancers/opening, the choice depends directly on the number of modern dances: '0' -> Básico, '1' -> Plata, '2' -> Oro.
 - If 'wantsOpeningShow' or 'wantsProfessionalDancers' is true, do not recommend Básico, Plata or Oro, as those packages do not include these features. Platinum is the minimum for those.
 
 After choosing the package, if they provided music genres, suggest some fun choreography ideas based on those genres. If not, suggest some popular styles.
