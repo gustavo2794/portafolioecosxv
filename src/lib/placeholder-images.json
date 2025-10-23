@@ -14,7 +14,7 @@
     },
     {
       "id": "project-5",
-      "description": "Presentacion de quinceañera con tematica de arlequines",
+      "description": "Presentacion de quinceañera con tematica de arlequines.",
       "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188199/min_opening_ywn6uw.png",
       "imageHint": "harlequin dance"
     },
@@ -29,6 +29,24 @@
       "description": "Una impresionante foto de una quinceañera en su vestido, lista para bailar.",
       "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188172/XV_1_1_m4qbud.png",
       "imageHint": "quinceanera portrait"
+    },
+    {
+      "id": "project-6",
+      "description": "El emotivo vals principal de la quinceañera.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188092/vals_principal_mma1bf.png",
+      "imageHint": "quinceanera couple dance"
+    },
+    {
+      "id": "project-mix-reggaeton",
+      "description": "Mix de Reggaeton moderno para XV años.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188117/Mix_reggaeton_1_rpqirl.png",
+      "imageHint": "group dance party"
+    },
+    {
+      "id": "project-mix-salsa-merengue",
+      "description": "Mix de Salsa y Merengue para XV años.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188168/Mix_salsa_merengue_w24qxb.png",
+      "imageHint": "salsa dancing couple"
     }
   ]
 }
