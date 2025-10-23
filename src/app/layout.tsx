@@ -24,6 +24,9 @@ const ptSans = PT_Sans({
 export const metadata: Metadata = {
   title: 'Compañia de Danza Ecos del Sur',
   description: 'XV Años Dance Choreography by Ecos Del Sur',
+  icons: {
+    icon: '/Letra E Ecos.png',
+  },
 };
 
 export default function RootLayout({
