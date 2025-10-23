@@ -42,9 +42,10 @@ const ChoreographyCatalog = () => {
         <Image
           src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png"
           alt="Ecos del Sur Watermark"
-          width={500}
-          height={500}
-          className="opacity-20"
+          fill
+          sizes="100vw"
+          className="object-contain opacity-20"
+          priority
         />
       </div>
       <div className="container relative z-10">
@@ -65,6 +66,7 @@ const ChoreographyCatalog = () => {
                 height={750}
                 className="object-cover w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={project.imageHint}
+                priority={index < 2} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h3 className="text-white font-bold text-lg -translate-y-4 group-hover:translate-y-0 transition-transform">
@@ -79,10 +81,10 @@ const ChoreographyCatalog = () => {
           <DialogContent className="max-w-5xl w-full p-2 bg-black/80 backdrop-blur-lg border-primary/50 text-white flex items-center justify-center">
             {currentProject && (
               <>
-              <DialogTitle className="sr-only">Visor de Imágenes</DialogTitle>
-              <DialogDescription className="sr-only">
-                Imagen de la galería: {currentProject.description}. Usa las flechas para navegar.
-              </DialogDescription>
+                <DialogTitle className="sr-only">Visor de Imágenes</DialogTitle>
+                <DialogDescription className="sr-only" id="gallery-dialog-description">
+                  Imagen de la galería: {currentProject.description}. Usa las flechas para navegar.
+                </DialogDescription>
               </>
             )}
             <div className="relative w-full h-[80vh] flex items-center justify-center">
@@ -106,6 +108,7 @@ const ChoreographyCatalog = () => {
                     alt={currentProject.description}
                     fill
                     className="object-contain"
+                    priority
                   />
                 </div>
               )}
