@@ -27,8 +27,8 @@ const Header = () => {
         <div className="flex flex-1 items-center justify-start">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="animate-pulse-glow-subtle">
+                <Menu className="h-7 w-7 text-primary" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
@@ -59,7 +59,7 @@ const Header = () => {
         </div>
 
         <div className="flex flex-1 items-center justify-end">
-            <Button asChild variant="outline" size="sm">
+            <Button asChild size="sm" className="animate-pulse-glow shadow-lg shadow-primary/30">
                 <Link href="/packages">Cotiza Aquí</Link>
             </Button>
         </div>
