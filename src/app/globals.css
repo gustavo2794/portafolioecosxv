@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,9 +62,6 @@
 
 @layer components {
   .btn-gloss {
-    @apply bg-gradient-to-b from-white/20 to-transparent;
-  }
-  .shine-effect {
-    @apply bg-gradient-to-b from-primary/20 to-transparent;
+    @apply absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-md;
   }
 }
