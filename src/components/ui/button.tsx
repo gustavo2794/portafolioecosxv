@@ -45,13 +45,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const isDefault = variant === 'default';
 
     if (asChild) {
-      return (
+      // For 'asChild', the child component will receive the props.
+      // We render the child, which might be another Button or a Link.
+      // If the child is our Button component, it will handle the gloss effect.
+      // If it's a Link that gets styled as a button, we can wrap it or modify it if needed,
+      // but for now, we pass the classes and let the child handle rendering.
+       return (
         <Comp
           className={cn(buttonVariants({ variant, size, className }))}
           ref={ref}
           {...props}
         />
-      )
+      );
     }
 
     return (
@@ -61,7 +66,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {props.children}
-        {isDefault && <span className="absolute inset-0 rounded-md btn-gloss" />}
+        {isDefault && <span className="btn-gloss" />}
       </Comp>
     )
   }
