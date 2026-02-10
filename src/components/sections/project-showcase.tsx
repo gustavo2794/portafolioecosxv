@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { PlayCircle } from 'lucide-react';
 
 const projects = [
   {
@@ -98,17 +99,20 @@ const ProjectShowcase = () => {
                         <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
                         {image && <CardDescription className="text-white/80">{image.description}</CardDescription>}
                       </CardHeader>
-                      <CardContent className="relative z-10">
+                      <CardContent className="relative z-10 p-4 pt-0">
                         {image && (
-                          <div className="aspect-video overflow-hidden rounded-lg">
+                          <div className="aspect-video overflow-hidden rounded-lg relative">
                             <Image
                               src={image.imageUrl}
                               alt={project.title}
                               width={600}
                               height={400}
-                              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                              className="object-cover w-full h-full transition-all duration-300 group-hover:scale-105 group-hover:brightness-75"
                               data-ai-hint={image.imageHint}
                             />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                                <PlayCircle className="h-20 w-20 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300 drop-shadow-lg" />
+                            </div>
                           </div>
                         )}
                       </CardContent>
