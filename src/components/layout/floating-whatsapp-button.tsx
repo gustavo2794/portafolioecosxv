@@ -1,26 +1,24 @@
-
 'use client';
 
-import { Button } from '@/components/ui/button';
 import CustomPackageBuilder from '../sections/custom-package-builder';
 
 const FloatingWhatsappButton = () => {
     return (
         <CustomPackageBuilder>
-            <Button
-                className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg z-50 flex items-center justify-center animate-pulse-glow"
-                size="icon"
+            <button
+                aria-label="Cotizar por WhatsApp"
+                className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-[#25D366] hover:bg-[#1DA851] transition-colors shadow-lg z-50 flex items-center justify-center animate-pulse-glow"
             >
                 <svg
-                    aria-label="Cotizar por WhatsApp"
-                    fill="currentColor"
+                    aria-label="WhatsApp"
+                    fill="white"
                     viewBox="0 0 512 512"
-                    className="h-8 w-8"
+                    className="h-9 w-9"
                 >
                     <path d="M414.73,97.1A224,224,0,0,0,256.94,32.06,223.86,223.86,0,0,0,32,256.12c0,44.23,12.86,86,37.13,120L32,480l106.2-36.29a223.3,223.3,0,0,0,118.74,36.23h0A224,224,0,0,0,414.73,97.1Zm-157.79,343A188.4,188.4,0,0,1,106.63,404l-7.56-5-57.5,19.17,19.5-56.12-5.44-7.82A188.75,188.75,0,0,1,36,256.12,188.8,188.8,0,0,1,257,67.29a188.7,188.7,0,0,1,188.7,188.83A188.88,188.88,0,0,1,256.94,440.11ZM368,310.51c-6.21-3.1-36.63-18-42.3-20-5.67-2-9.78-3.1-14,3.1-4.11,6.21-16,20-19.67,24.11-3.66,4.11-7.33,4.62-13.54,1.52-6.21-3.1-26.17-9.63-49.85-30.73-18.42-16.4-30.86-36.63-34.52-42.84-3.66-6.21-.39-9.63,2.71-12.74,2.78-2.78,6.21-7.24,9.32-10.8,3.1-3.66,4.11-6.21,6.21-10.32s3.1-7.75,1.52-13.54c-1.58-5.78-14-33.5-19.17-45.92-5.08-12.15-10.25-10.5-14-10.68-3.66,0-7.75-0.19-11.86-0.19a23.16,23.16,0,0,0-17,8.22c-5.78,6.21-22.09,21.58-22.09,52.62s22.58,61,25.68,65.11c3.1,4.11,44.4,67.75,107.56,95.12,14.74,6.43,26.26,10.25,35.25,13.1,14.65,4.64,28,4.11,38.54-2.52,12.15-7.82,36.63-30.08,41.8-40.25s5.08-18.66,3.59-21.77C378.29,315.14,374.18,313.61,368,310.51Z"/>
                 </svg>
                 <span className="sr-only">Cotiza por WhatsApp</span>
-            </Button>
+            </button>
         </CustomPackageBuilder>
     );
 };
