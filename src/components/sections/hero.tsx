@@ -37,7 +37,7 @@ const Hero = () => {
           Ecos Del Sur trae pasión, elegancia y coreografías inolvidables a tu celebración de XV Años.
         </p>
         <Button asChild size="lg" className="mt-8 font-bold uppercase tracking-wider">
-          <Link href="/projects">Explora Nuestro Trabajo</Link>
+          <Link href="/projects">Explora Nuestro Portafolio</Link>
         </Button>
       </div>
     </section>
