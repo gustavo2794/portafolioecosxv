@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { FirebaseClientProvider } from '@/firebase';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
 import './globals.css';
+import FloatingWhatsappButton from '@/components/layout/floating-whatsapp-button';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="font-body antialiased relative">
         <FirebaseClientProvider>
           {children}
+          <FloatingWhatsappButton />
         </FirebaseClientProvider>
         <Toaster />
       </body>
