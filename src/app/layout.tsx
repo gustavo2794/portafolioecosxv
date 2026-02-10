@@ -5,6 +5,7 @@ import { FirebaseClientProvider } from '@/firebase';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
 import './globals.css';
 import FloatingWhatsappButton from '@/components/layout/floating-whatsapp-button';
+import { Analytics } from '@vercel/analytics/react';
 
 const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
@@ -46,6 +47,7 @@ export default function RootLayout({
           <FloatingWhatsappButton />
         </FirebaseClientProvider>
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
