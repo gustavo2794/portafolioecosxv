@@ -9,14 +9,16 @@ import {
   TouchableWithoutFeedback,
   Platform,
   Alert,
+  Switch,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { format, isBefore, startOfToday } from 'date-fns';
 import { es } from 'date-fns/locale';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Feather } from '@expo/vector-icons';
 import { Colors, Fonts, Spacing, BorderRadius } from '../constants/theme';
 import { Button } from './Button';
 import { buildPackageQuoteMessage, openWhatsApp } from '../utils/whatsapp';
+import { scheduleAllEventReminders } from '../services/notifications';
 
 interface QuoteModalProps {
   visible: boolean;
@@ -32,6 +34,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   const [name, setName] = useState('');
   const [date, setDate] = useState<Date | undefined>();
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [enableReminders, setEnableReminders] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
     if (!name.trim()) {
@@ -43,6 +47,33 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
       return;
     }
 
+    setIsSubmitting(true);
+
+    try {
+      // Schedule reminders if enabled and date is provided
+      if (enableReminders && date) {
+        const scheduledIds = await scheduleAllEventReminders(date, name, packageName);
+        if (scheduledIds.length > 0) {
+          Alert.alert(
+            '🔔 Recordatorios programados',
+            `Te enviaremos recordatorios antes de tu evento para que no olvides ningún detalle.`,
+            [{ text: 'Continuar', onPress: () => sendWhatsApp() }]
+          );
+        } else {
+          sendWhatsApp();
+        }
+      } else {
+        sendWhatsApp();
+      }
+    } catch (error) {
+      console.error('Error scheduling reminders:', error);
+      sendWhatsApp();
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const sendWhatsApp = async () => {
     const message = buildPackageQuoteMessage(packageName, name, date);
     await openWhatsApp(message);
     handleClose();
@@ -51,6 +82,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   const handleClose = () => {
     setName('');
     setDate(undefined);
+    setEnableReminders(true);
     onClose();
   };
 
@@ -113,10 +145,32 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 />
               )}
 
+              {date && (
+                <View style={styles.reminderContainer}>
+                  <View style={styles.reminderRow}>
+                    <View style={styles.reminderTextContainer}>
+                      <Feather name="bell" size={20} color={Colors.primaryRgb} />
+                      <Text style={styles.reminderLabel}>Recordatorios del evento</Text>
+                    </View>
+                    <Switch
+                      value={enableReminders}
+                      onValueChange={setEnableReminders}
+                      trackColor={{ false: Colors.textMutedRgb, true: Colors.primaryRgb }}
+                      thumbColor={enableReminders ? '#fff' : '#f4f3f4'}
+                      testID="reminder-switch"
+                    />
+                  </View>
+                  <Text style={styles.reminderHint}>
+                    Te notificaremos 7, 3 y 1 día antes de tu evento
+                  </Text>
+                </View>
+              )}
+
               <Button
                 title="Enviar por WhatsApp"
                 onPress={handleSubmit}
                 style={styles.submitButton}
+                loading={isSubmitting}
                 testID="quote-submit-button"
               />
             </View>
@@ -192,6 +246,35 @@ const styles = StyleSheet.create({
   },
   datePlaceholder: {
     color: Colors.textMutedRgb,
+  },
+  reminderContainer: {
+    backgroundColor: 'rgba(234, 195, 92, 0.1)',
+    borderRadius: BorderRadius.md,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+    borderWidth: 1,
+    borderColor: 'rgba(234, 195, 92, 0.3)',
+  },
+  reminderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  reminderTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  reminderLabel: {
+    fontFamily: Fonts.bodyBold,
+    fontSize: 14,
+    color: Colors.textRgb,
+  },
+  reminderHint: {
+    fontFamily: Fonts.body,
+    fontSize: 12,
+    color: Colors.textMutedRgb,
+    marginTop: Spacing.xs,
   },
   submitButton: {
     marginTop: Spacing.md,

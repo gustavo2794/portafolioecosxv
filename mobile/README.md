@@ -19,6 +19,7 @@ Aplicación móvil para la Compañía de Danza Ecos del Sur, desarrollada con Re
 - ✅ Selector de fecha para eventos
 - ✅ Lightbox para galería con navegación swipe
 - ✅ Animaciones sutiles y elegantes
+- ✅ **Notificaciones Push** - Recordatorios automáticos de eventos (7, 3 y 1 día antes)
 
 ## 🎨 Diseño
 
@@ -99,11 +100,29 @@ mobile/
 │   │   ├── HomeScreen.tsx
 │   │   ├── ProjectsScreen.tsx
 │   │   ├── PackagesScreen.tsx
-│   │   └── GalleryScreen.tsx
+│   │   ├── GalleryScreen.tsx
+│   │   └── RemindersScreen.tsx  # Nueva: Gestión de recordatorios
+│   ├── services/          # Servicios
+│   │   └── notifications.ts     # Servicio de notificaciones push
 │   └── utils/             # Utilidades
 │       └── whatsapp.ts    # Funciones de WhatsApp
 └── assets/                # Recursos estáticos
 ```
+
+## 🔔 Notificaciones Push
+
+La app incluye un sistema de recordatorios automáticos para eventos:
+
+### Características
+- **Recordatorios automáticos**: Se programan notificaciones 7, 3 y 1 día antes del evento
+- **Toggle de activación**: El usuario puede activar/desactivar los recordatorios al solicitar cotización
+- **Gestión de recordatorios**: Pantalla dedicada para ver y cancelar recordatorios programados
+- **Permisos**: La app solicita permisos de notificación solo cuando es necesario
+
+### Uso
+1. Al solicitar una cotización con fecha de evento, aparece un switch para activar recordatorios
+2. Si se activa, se programan notificaciones automáticas
+3. En la pantalla "Recordatorios" del menú lateral se pueden ver y gestionar los recordatorios activos
 
 ## 🔧 Dependencias Principales
 

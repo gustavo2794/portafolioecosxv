@@ -6,10 +6,10 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   Platform,
   Alert,
   ScrollView,
+  Switch,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Picker } from '@react-native-picker/picker';
@@ -20,6 +20,7 @@ import { Colors, Fonts, Spacing, BorderRadius } from '../constants/theme';
 import { Button } from './Button';
 import { customPackageFeatures } from '../constants/data';
 import { buildCustomPackageMessage, openWhatsApp } from '../utils/whatsapp';
+import { scheduleAllEventReminders } from '../services/notifications';
 
 interface CustomPackageModalProps {
   visible: boolean;
@@ -38,6 +39,8 @@ export const CustomPackageModal: React.FC<CustomPackageModalProps> = ({
   const [date, setDate] = useState<Date | undefined>();
   const [specialRequest, setSpecialRequest] = useState('');
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [enableReminders, setEnableReminders] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleFeature = (id: string) => {
     setSelectedFeatures((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -65,6 +68,33 @@ export const CustomPackageModal: React.FC<CustomPackageModalProps> = ({
       return;
     }
 
+    setIsSubmitting(true);
+
+    try {
+      // Schedule reminders if enabled and date is provided
+      if (enableReminders && date) {
+        const scheduledIds = await scheduleAllEventReminders(date, name, 'Paquete Personalizado');
+        if (scheduledIds.length > 0) {
+          Alert.alert(
+            '🔔 Recordatorios programados',
+            `Te enviaremos recordatorios antes de tu evento para que no olvides ningún detalle.`,
+            [{ text: 'Continuar', onPress: () => sendWhatsApp(selectedLabels) }]
+          );
+        } else {
+          sendWhatsApp(selectedLabels);
+        }
+      } else {
+        sendWhatsApp(selectedLabels);
+      }
+    } catch (error) {
+      console.error('Error scheduling reminders:', error);
+      sendWhatsApp(selectedLabels);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const sendWhatsApp = async (selectedLabels: string[]) => {
     const message = buildCustomPackageMessage(
       name,
       selectedLabels,
@@ -84,6 +114,7 @@ export const CustomPackageModal: React.FC<CustomPackageModalProps> = ({
     setName('');
     setDate(undefined);
     setSpecialRequest('');
+    setEnableReminders(true);
     onClose();
   };
 
@@ -200,6 +231,27 @@ export const CustomPackageModal: React.FC<CustomPackageModalProps> = ({
               />
             )}
 
+            {date && (
+              <View style={styles.reminderContainer}>
+                <View style={styles.reminderRow}>
+                  <View style={styles.reminderTextContainer}>
+                    <Feather name="bell" size={20} color={Colors.primaryRgb} />
+                    <Text style={styles.reminderLabel}>Recordatorios</Text>
+                  </View>
+                  <Switch
+                    value={enableReminders}
+                    onValueChange={setEnableReminders}
+                    trackColor={{ false: Colors.textMutedRgb, true: Colors.primaryRgb }}
+                    thumbColor={enableReminders ? '#fff' : '#f4f3f4'}
+                    testID="custom-reminder-switch"
+                  />
+                </View>
+                <Text style={styles.reminderHint}>
+                  Te notificaremos 7, 3 y 1 día antes
+                </Text>
+              </View>
+            )}
+
             <View style={styles.inputContainer}>
               <Text style={styles.label}>Peticiones Especiales (Opcional)</Text>
               <TextInput
@@ -220,6 +272,7 @@ export const CustomPackageModal: React.FC<CustomPackageModalProps> = ({
             title="Solicitar Cotización por WhatsApp"
             onPress={handleSubmit}
             style={styles.submitButton}
+            loading={isSubmitting}
             testID="custom-package-submit"
           />
         </View>
@@ -264,7 +317,7 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.md,
   },
   scrollView: {
-    maxHeight: 400,
+    maxHeight: 380,
   },
   sectionTitle: {
     fontFamily: Fonts.bodyBold,
@@ -357,6 +410,35 @@ const styles = StyleSheet.create({
   },
   datePlaceholder: {
     color: Colors.textMutedRgb,
+  },
+  reminderContainer: {
+    backgroundColor: 'rgba(234, 195, 92, 0.1)',
+    borderRadius: BorderRadius.md,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+    borderWidth: 1,
+    borderColor: 'rgba(234, 195, 92, 0.3)',
+  },
+  reminderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  reminderTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+  },
+  reminderLabel: {
+    fontFamily: Fonts.bodyBold,
+    fontSize: 14,
+    color: Colors.textRgb,
+  },
+  reminderHint: {
+    fontFamily: Fonts.body,
+    fontSize: 12,
+    color: Colors.textMutedRgb,
+    marginTop: Spacing.xs,
   },
   submitButton: {
     marginTop: Spacing.md,

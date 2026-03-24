@@ -8,7 +8,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { Feather } from '@expo/vector-icons';
-import { HomeScreen, ProjectsScreen, PackagesScreen, GalleryScreen } from '../screens';
+import { HomeScreen, ProjectsScreen, PackagesScreen, GalleryScreen, RemindersScreen } from '../screens';
 import { Colors, Fonts, Spacing, BorderRadius } from '../constants/theme';
 import { LOGO_ICON } from '../constants/data';
 import { Button } from '../components/Button';
@@ -18,6 +18,7 @@ export type RootDrawerParamList = {
   Proyectos: undefined;
   Paquetes: undefined;
   Galeria: undefined;
+  Recordatorios: undefined;
 };
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
@@ -31,6 +32,7 @@ const CustomDrawerContent: React.FC<DrawerContentComponentProps> = (props) => {
     { name: 'Proyectos', label: 'Proyectos', icon: 'video' },
     { name: 'Paquetes', label: 'Paquetes', icon: 'package' },
     { name: 'Galeria', label: 'Galería', icon: 'image' },
+    { name: 'Recordatorios', label: 'Recordatorios', icon: 'bell' },
   ];
 
   return (
@@ -127,6 +129,7 @@ export const AppNavigator: React.FC = () => {
       <Drawer.Screen name="Proyectos" component={ProjectsScreen} />
       <Drawer.Screen name="Paquetes" component={PackagesScreen} />
       <Drawer.Screen name="Galeria" component={GalleryScreen} />
+      <Drawer.Screen name="Recordatorios" component={RemindersScreen} />
     </Drawer.Navigator>
   );
 };
