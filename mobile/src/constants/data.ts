@@ -1,6 +1,6 @@
 // All content data for Ecos del Sur App
 
-export const WHATSAPP_NUMBER = '525528098448';
+export const WHATSAPP_NUMBER = process.env.EXPO_PUBLIC_WHATSAPP_NUMBER || '525528098448';
 
 export const LOGO_FULL = 'https://res.cloudinary.com/drylg7prb/image/upload/v1761183135/LOGO_ECOS_2024_cldy7v.png';
 export const LOGO_ICON = 'https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png';
