@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Sparkles, Camera, Smartphone, PartyPopper } from 'lucide-react';
