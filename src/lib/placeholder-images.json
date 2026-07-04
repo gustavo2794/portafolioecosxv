@@ -47,6 +47,12 @@
       "description": "Mix de Salsa y Merengue para XV años.",
       "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188168/Mix_salsa_merengue_w24qxb.png",
       "imageHint": "salsa dancing couple"
+    },
+    {
+      "id": "project-mix-latino",
+      "description": "Energético Mix Latino para tu celebración.",
+      "imageUrl": "https://picsum.photos/seed/mixlatino1/600/400",
+      "imageHint": "latin dance"
     }
   ]
 }

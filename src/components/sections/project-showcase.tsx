@@ -32,6 +32,11 @@ const projects = [
     id: 'project-mix-salsa-merengue',
     youtubeVideoId: 'https://youtu.be/w0EEKnJdJFk',
   },
+  {
+    title: 'Mix Latino',
+    id: 'project-mix-latino',
+    youtubeVideoId: 'https://youtu.be/oV5ZSAZzHz0',
+  },
 ];
 
 // Función para extraer el ID de video de una URL de YouTube
