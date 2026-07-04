@@ -4,9 +4,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Check, PackagePlus } from 'lucide-react';
+import { Check } from 'lucide-react';
 import Image from 'next/image';
-import CustomPackageBuilder from './custom-package-builder';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '../ui/dialog';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -25,7 +24,6 @@ const packages = [
         'Vals protocolos (juguete, coronación, zapatilla, brindis)',
         'Vals principal',
       ],
-      whatsappMessage: 'Hola, Estoy interesad@ en el paquete Básico.',
       bgColor: 'bg-gray-700/10',
       borderColor: 'border-gray-600',
       shadow: 'shadow-xl shadow-gray-500/20'
@@ -39,7 +37,6 @@ const packages = [
         'Vals familiar',
         'Mix moderno (3 canciones)',
       ],
-      whatsappMessage: 'Hola, Estoy interesad@ en el paquete Plata.',
       bgColor: 'bg-slate-500/10',
       borderColor: 'border-slate-400',
       shadow: 'shadow-xl shadow-slate-400/20'
@@ -54,7 +51,6 @@ const packages = [
         'Mix moderno 1',
         'Mix moderno 2',
       ],
-      whatsappMessage: 'Hola, Estoy interesad@ en el paquete Oro.',
       bgColor: 'bg-yellow-500/10',
       borderColor: 'border-yellow-400',
       shadow: 'shadow-xl shadow-yellow-400/20'
@@ -71,7 +67,6 @@ const packages = [
             'Mix moderno 2',
             '4 Bailarines',
         ],
-        whatsappMessage: 'Hola, Estoy interesad@ en el paquete Platinum.',
         bgColor: 'bg-blue-400/10',
         borderColor: 'border-blue-300',
         shadow: 'shadow-xl shadow-blue-300/20'
@@ -90,7 +85,6 @@ const packages = [
             'Vestuario para bailarines y quinceañera',
             'Pirotecnia'
         ],
-        whatsappMessage: 'Hola, Estoy interesad@ en el paquete Diamante.',
         bgColor: 'bg-purple-500/10',
         borderColor: 'border-purple-400',
         shadow: 'shadow-xl shadow-purple-400/20'
@@ -222,31 +216,6 @@ const Pricing = () => {
               </CardFooter>
             </Card>
           ))}
-            <CustomPackageBuilder>
-                <Card
-                className="flex flex-col text-center justify-between transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br from-primary/20 to-accent/20 border-primary cursor-pointer h-full shadow-xl shadow-primary/20"
-                >
-                <CardHeader>
-                    <div className='flex flex-col items-center gap-4'>
-                        <PackagePlus className="h-12 w-12 text-primary" />
-                        <CardTitle className="text-2xl font-bold font-headline">
-                        Crea tu Propio Paquete
-                        </CardTitle>
-                    </div>
-                </CardHeader>
-                <CardContent className="flex-grow flex items-center justify-center">
-                    <p className="text-muted-foreground">¿No encuentras lo que buscas? Diseña una experiencia a tu medida seleccionando solo lo que necesitas.</p>
-                </CardContent>
-                <CardFooter>
-                    <Button variant="outline" className="w-full bg-background/50">
-                        Comenzar a Construir
-                    </Button>
-                </CardFooter>
-                </Card>
-            </CustomPackageBuilder>
-        </div>
-        <div className="text-center mt-24 text-white/70 text-xl">
-            <p>*Precios sujetos a cambio sin previo aviso</p>
         </div>
       </div>
     </section>
