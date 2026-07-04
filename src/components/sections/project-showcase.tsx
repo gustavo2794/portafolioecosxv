@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { PlayCircle } from 'lucide-react';
@@ -10,62 +10,50 @@ const projects = [
   {
     title: 'OPENING',
     id: 'project-5',
-    youtubeVideoId: 'https://www.youtube.com/watch?v=xvStAvolUQU',
+    youtubeVideoId: 'xvStAvolUQU',
   },
   {
     title: 'Vals de Entrada',
     id: 'project-7',
-    youtubeVideoId: 'https://youtu.be/V_wTqHT3Mh0',
+    youtubeVideoId: 'V_wTqHT3Mh0',
   },
   {
     title: 'Vals Principal',
-    "id": "project-6",
-    youtubeVideoId: 'https://youtu.be/Ihajp1w0rxA',
+    id: "project-6",
+    youtubeVideoId: 'Ihajp1w0rxA',
   },
   {
     title: 'Mix Reggaeton',
     id: 'project-mix-reggaeton',
-    youtubeVideoId: 'https://youtu.be/1ISY6kLm6Cg',
+    youtubeVideoId: '1ISY6kLm6Cg',
   },
   {
     title: 'Mix Salsa y Merengue',
     id: 'project-mix-salsa-merengue',
-    youtubeVideoId: 'https://youtu.be/w0EEKnJdJFk',
+    youtubeVideoId: 'w0EEKnJdJFk',
   },
   {
     title: 'Mix Latino',
     id: 'project-mix-latino',
-    youtubeVideoId: 'https://youtu.be/oV5ZSAZzHz0',
+    youtubeVideoId: 'oV5ZSAZzHz0',
   },
 ];
 
-// Función para extraer el ID de video de una URL de YouTube
 const getYouTubeId = (urlOrId: string): string => {
   if (!urlOrId) return '';
-  // Si ya es solo el ID, devuélvelo
-  if (!urlOrId.includes('http')) {
-    return urlOrId;
-  }
+  if (!urlOrId.includes('http')) return urlOrId;
   try {
     const url = new URL(urlOrId);
-    if (url.hostname === 'youtu.be') {
-      return url.pathname.slice(1).split('?')[0];
-    }
+    if (url.hostname === 'youtu.be') return url.pathname.slice(1).split('?')[0];
     if (url.hostname === 'www.youtube.com' || url.hostname === 'youtube.com') {
-      if (url.pathname === '/watch') {
-        return url.searchParams.get('v') || '';
-      }
-      if (url.pathname.startsWith('/embed/')) {
-        return url.pathname.split('/embed/')[1].split('?')[0];
-      }
+      if (url.pathname === '/watch') return url.searchParams.get('v') || '';
+      if (url.pathname.startsWith('/embed/')) return url.pathname.split('/embed/')[1].split('?')[0];
     }
   } catch (error) {
-    console.error('Invalid YouTube URL:', urlOrId);
-    return urlOrId; // Devuelve el original si falla el parseo
+    return urlOrId;
   }
-  return urlOrId; // Devuelve el original si no se encuentra el ID
+  return urlOrId;
 };
-
 
 const ProjectShowcase = () => {
   return (
@@ -111,7 +99,6 @@ const ProjectShowcase = () => {
                             width={600}
                             height={400}
                             className="object-cover w-full h-full transition-all duration-300 group-hover:scale-105 group-hover:brightness-75"
-                            data-ai-hint={image.imageHint}
                           />
                           <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
                               <PlayCircle className="h-20 w-20 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300 drop-shadow-lg" />
@@ -135,30 +122,7 @@ const ProjectShowcase = () => {
                 </Dialog>
               );
             }
-            
-            // Fallback por si no es un video o no se encuentra la imagen (no debería pasar con la data actual)
-            return (
-              <Card key={project.id} className="bg-black/30 border-white/20 text-white overflow-hidden">
-                <CardHeader>
-                  <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
-                  {image && <CardDescription className="text-white/80">{image.description}</CardDescription>}
-                </CardHeader>
-                <CardContent>
-                  {image && (
-                    <div className="aspect-video overflow-hidden rounded-lg">
-                      <Image
-                        src={image.imageUrl}
-                        alt={project.title}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                        data-ai-hint={image.imageHint}
-                      />
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            );
+            return null;
           })}
         </div>
       </div>

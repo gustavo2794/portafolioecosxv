@@ -1,8 +1,7 @@
-
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { Card, CardTitle } from '@/components/ui/card';
 import { PackagePlus } from 'lucide-react';
 import CustomPackageBuilder from './custom-package-builder';
 
@@ -45,7 +44,6 @@ export default function CustomPackageCTA() {
         </div>
       </div>
       
-      {/* Elementos decorativos de fondo */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
     </section>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -156,7 +155,6 @@ const QuoteDialog = ({ trigger, messageGenerator }: { trigger: React.ReactNode; 
     </Dialog>
   );
 };
-
 
 const Pricing = () => {
   return (

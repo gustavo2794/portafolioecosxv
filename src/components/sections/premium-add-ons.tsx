@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Sparkles, Camera, Smartphone, PartyPopper } from 'lucide-react';
@@ -11,7 +10,7 @@ const addOns = [
     title: 'Pirotecnia Fría',
     icon: Sparkles,
     description: 'Ilumina tu vals principal con chispas mágicas totalmente seguras para interiores.',
-    videoUrl: '', // URL de Cloudinary .mp4
+    videoUrl: '', 
   },
   {
     id: 'premium-drone',
@@ -39,11 +38,9 @@ const addOns = [
 export default function PremiumAddOns() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Fondo Premium con Gradiente y Marca de Agua */}
       <div className="absolute inset-0 bg-black z-0" />
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 via-black to-accent/20 z-0" />
       
-      {/* Marca de Agua "E" */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
         <Image
           src="https://res.cloudinary.com/drylg7prb/image/upload/v1761183133/Letra_E_Ecos_vikchj.png"
@@ -54,7 +51,6 @@ export default function PremiumAddOns() {
         />
       </div>
 
-      {/* Separador Superior Dorado */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
 
       <div className="container relative z-10 px-6">
@@ -76,7 +72,6 @@ export default function PremiumAddOns() {
                 key={item.id} 
                 className="group relative overflow-hidden rounded-2xl bg-card/40 backdrop-blur-sm border border-primary/20 transition-all duration-500 hover:border-primary hover:-translate-y-3 aspect-[4/5] shadow-2xl shadow-black/50"
               >
-                {/* Contenedor de Video / Imagen */}
                 <div className="absolute inset-0 z-0">
                   {item.videoUrl ? (
                     <video
@@ -94,15 +89,12 @@ export default function PremiumAddOns() {
                         alt={item.title}
                         fill
                         className="object-cover brightness-50 group-hover:brightness-90 transition-all duration-700"
-                        data-ai-hint={placeholder?.imageHint}
                       />
                     </div>
                   )}
-                  {/* Gradiente Overlay para legibilidad de texto */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
                 </div>
 
-                {/* Contenido */}
                 <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
                   <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 backdrop-blur-md border border-primary/30 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-lg">
                     <item.icon className="h-7 w-7" />
@@ -113,8 +105,6 @@ export default function PremiumAddOns() {
                   <p className="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors duration-500">
                     {item.description}
                   </p>
-                  
-                  {/* Brillo decorativo al final de la tarjeta */}
                   <div className="mt-4 h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-500" />
                 </div>
               </div>
@@ -123,7 +113,6 @@ export default function PremiumAddOns() {
         </div>
       </div>
       
-      {/* Luces decorativas en las esquinas */}
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
     </section>

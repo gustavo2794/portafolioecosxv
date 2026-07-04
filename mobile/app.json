@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Ecos del Sur",
+    "slug": "ecos-del-sur",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f172a"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ecosdelsur.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.ecosdelsur.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#eac35c",
+          "sounds": [],
+          "androidMode": "default",
+          "androidCollapsedTitle": "Ecos del Sur"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ecos-del-sur-app"
+      }
+    }
+  }
+}
