@@ -53,6 +53,30 @@
       "description": "Energético Mix Latino para tu celebración.",
       "imageUrl": "https://picsum.photos/seed/mixlatino1/600/400",
       "imageHint": "latin dance"
+    },
+    {
+      "id": "premium-pirotecnia",
+      "description": "Efectos de pirotecnia fría para momentos estelares.",
+      "imageUrl": "https://picsum.photos/seed/pirotecnia/600/800",
+      "imageHint": "fireworks sparklers"
+    },
+    {
+      "id": "premium-drone",
+      "description": "Tomas aéreas cinematográficas de tu evento.",
+      "imageUrl": "https://picsum.photos/seed/drone/600/800",
+      "imageHint": "drone flight"
+    },
+    {
+      "id": "premium-invitacion",
+      "description": "Invitaciones digitales interactivas y elegantes.",
+      "imageUrl": "https://picsum.photos/seed/invitation/600/800",
+      "imageHint": "digital invitation"
+    },
+    {
+      "id": "premium-batucada",
+      "description": "Batucada con botargas y personajes para máxima diversión.",
+      "imageUrl": "https://picsum.photos/seed/party/600/800",
+      "imageHint": "costume party"
     }
   ]
 }
