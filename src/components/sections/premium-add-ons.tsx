@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Sparkles, Camera, Smartphone, PartyPopper } from 'lucide-react';
@@ -18,7 +17,7 @@ const addOns = [
     title: 'Cobertura Drone',
     icon: Camera,
     description: 'Captura la magnitud de tu fiesta desde el cielo con tomas cinematográficas.',
-    videoUrl: '', 
+    videoUrl: 'https://res.cloudinary.com/drylg7prb/video/upload/v1783702086/Promo_Drone_1_rqov19.mp4', 
   },
   {
     id: 'premium-invitacion',
