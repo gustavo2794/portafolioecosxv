@@ -1,0 +1,235 @@
+{
+  "entities": {
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a past XV Años dance project.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the project."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the project."
+        },
+        "imageUrls": {
+          "type": "array",
+          "description": "URLs of images associated with the project.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "videoUrls": {
+          "type": "array",
+          "description": "URLs of videos associated with the project.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "date": {
+          "type": "string",
+          "description": "Date of the project.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "imageUrls",
+        "videoUrls",
+        "date"
+      ]
+    },
+    "PortfolioItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "PortfolioItem",
+      "type": "object",
+      "description": "Represents a single item in the portfolio, like a video or image of a choreography.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the portfolio item."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the portfolio item (e.g., 'Vals de Ensueño')."
+        },
+        "description": {
+          "type": "string",
+          "description": "A short description of the item."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category or genre of the dance (e.g., 'Salsa', 'Bachata', 'Vals')."
+        },
+        "mediaType": {
+          "type": "string",
+          "enum": ["video", "image"],
+          "description": "The type of media."
+        },
+        "mediaUrl": {
+          "type": "string",
+          "description": "URL of the video or image file."
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "description": "URL of a thumbnail image, especially for videos."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "category",
+        "mediaType",
+        "mediaUrl"
+      ]
+    },
+    "PriceList": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "PriceList",
+      "type": "object",
+      "description": "Represents pricing information for different services.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the price list entry."
+        },
+        "serviceName": {
+          "type": "string",
+          "description": "Name of the service."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the service offered."
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the service."
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency in which the price is specified."
+        }
+      },
+      "required": [
+        "id",
+        "serviceName",
+        "description",
+        "price",
+        "currency"
+      ]
+    },
+    "PyrotechnicsMachine": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "PyrotechnicsMachine",
+      "type": "object",
+      "description": "Represents information about a pyrotechnics machine.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the pyrotechnics machine."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the pyrotechnics machine."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the pyrotechnics machine and its capabilities."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of an image of the pyrotechnics machine."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "imageUrl"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Collection of past XV Años dance projects. Publicly readable.",
+          "params": [
+            {
+              "name": "projectId",
+              "description": "Unique identifier for the project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/portfolio/{itemId}",
+        "definition": {
+          "entityName": "PortfolioItem",
+          "schema": {
+            "$ref": "#/backend/entities/PortfolioItem"
+          },
+          "description": "Collection of portfolio items (videos and images). Publicly readable.",
+          "params": [
+            {
+              "name": "itemId",
+              "description": "Unique identifier for the portfolio item."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/price_lists/{priceListId}",
+        "definition": {
+          "entityName": "PriceList",
+          "schema": {
+            "$ref": "#/backend/entities/PriceList"
+          },
+          "description": "Collection of pricing information for different services. Publicly readable.",
+          "params": [
+            {
+              "name": "priceListId",
+              "description": "Unique identifier for the price list entry."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/pyrotechnics_machines/{pyrotechnicsMachineId}",
+        "definition": {
+          "entityName": "PyrotechnicsMachine",
+          "schema": {
+            "$ref": "#/backend/entities/PyrotechnicsMachine"
+          },
+          "description": "Collection of information about pyrotechnics machines. Publicly readable.",
+          "params": [
+            {
+              "name": "pyrotechnicsMachineId",
+              "description": "Unique identifier for the pyrotechnics machine."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "Given the requirement for a catalog-style application where users primarily browse content without authentication requirements beyond anonymous access, the Firestore structure is designed for ease of access and scalability.  Since no user-generated content is present, and the application is read-heavy, we optimize for simple queries and minimal security rule complexity.\n\nAuthorization Independence: Not strictly applicable in this scenario, as all data is public. No denormalization is required.\n\nQAPs: The structure supports secure 'list' operations by segregating data into dedicated collections, each representing a specific content type (projects, portfolio items, price lists, pyrotechnics machines).  This segregation allows for straightforward security rules that permit unauthenticated read access to these collections.\n\nThe design intentionally avoids any user-specific data storage or complex authorization logic.  All collections are treated as public read-only catalogs.\n\nFuture considerations: if any kind of admin panel is required, a separate admin-only collection to define admins by existence can be used to restrict write access to those collections."
+  }
+}

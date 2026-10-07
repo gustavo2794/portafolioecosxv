@@ -1,0 +1,67 @@
+/**
+ * @file Firestore Security Rules
+ * @description This ruleset configures Firestore for a catalog application, allowing public read access to all content collections (projects, choreography styles, price lists, and pyrotechnics machines). Write access is denied to all users.
+ * @dataStructure
+ *   /projects/{projectId}
+ *   /choreography_styles/{choreographyStyleId}
+ *   /price_lists/{priceListId}
+ *   /pyrotechnics_machines/{pyrotechnicsMachineId}
+ * @keySecurityDecisions
+ *   - All collections are publicly readable.
+ *   - No user-specific data is stored.
+ *   - All write operations are explicitly denied.
+ * @authorizationIndependence Not applicable, as all data is public. No denormalization required.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Allows anyone to read project data, but prohibits all writes.
+     * @path /projects/{projectId}
+     * @allow (get, list) Any user can read project data.
+     * @deny (create, update, delete) No user can modify project data.
+     * @principle Allows public read access for catalog browsing.
+     */
+    match /projects/{projectId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Allows anyone to read choreography style data, but prohibits all writes.
+     * @path /choreography_styles/{choreographyStyleId}
+     * @allow (get, list) Any user can read choreography style data.
+     * @deny (create, update, delete) No user can modify choreography style data.
+     * @principle Allows public read access for catalog browsing.
+     */
+    match /choreography_styles/{choreographyStyleId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Allows anyone to read price list data, but prohibits all writes.
+     * @path /price_lists/{priceListId}
+     * @allow (get, list) Any user can read price list data.
+     * @deny (create, update, delete) No user can modify price list data.
+     * @principle Allows public read access for catalog browsing.
+     */
+    match /price_lists/{priceListId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+
+    /**
+     * @description Allows anyone to read pyrotechnics machine data, but prohibits all writes.
+     * @path /pyrotechnics_machines/{pyrotechnicsMachineId}
+     * @allow (get, list) Any user can read pyrotechnics machine data.
+     * @deny (create, update, delete) No user can modify pyrotechnics machine data.
+     * @principle Allows public read access for catalog browsing.
+     */
+    match /pyrotechnics_machines/{pyrotechnicsMachineId} {
+      allow get, list: if true;
+      allow create, update, delete: if false;
+    }
+  }
+}

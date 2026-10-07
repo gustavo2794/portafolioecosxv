@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "project-sahory",
+      "description": "Sesión de fotos de la quinceañera Sahory.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202685/XV_Sahory_hjsj9j.png",
+      "imageHint": "quinceanera dress"
+    },
+    {
+      "id": "project-zayuri",
+      "description": "Sesión de fotos de la quinceañera Zayuri.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761202158/XV_Zayuri_slg8lh.png",
+      "imageHint": "quinceanera garden"
+    },
+    {
+      "id": "project-5",
+      "description": "Presentacion de quinceañera con tematica de arlequines.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188199/min_opening_ywn6uw.png",
+      "imageHint": "harlequin dance"
+    },
+    {
+      "id": "project-7",
+      "description": "Una interpretación moderna y dinámica del tradicional vals de entrada.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761183361/Vals_Entrada_ahcplm.png",
+      "imageHint": "quinceanera entrance modern"
+    },
+    {
+      "id": "hero-background",
+      "description": "Una impresionante foto de una quinceañera en su vestido, lista para bailar.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188172/XV_1_1_m4qbud.png",
+      "imageHint": "quinceanera portrait"
+    },
+    {
+      "id": "project-6",
+      "description": "El emotivo vals principal de la quinceañera.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188092/vals_principal_mma1bf.png",
+      "imageHint": "quinceanera couple dance"
+    },
+    {
+      "id": "project-mix-reggaeton",
+      "description": "Mix de Reggaeton moderno para XV años.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188117/Mix_reggaeton_1_rpqirl.png",
+      "imageHint": "group dance party"
+    },
+    {
+      "id": "project-mix-salsa-merengue",
+      "description": "Mix de Salsa y Merengue para XV años.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1761188168/Mix_salsa_merengue_w24qxb.png",
+      "imageHint": "salsa dancing couple"
+    },
+    {
+      "id": "project-mix-latino",
+      "description": "Energético Mix Latino para tu celebración.",
+      "imageUrl": "https://res.cloudinary.com/drylg7prb/image/upload/v1783149909/Mix_Latino_gcvb9x.png",
+      "imageHint": "latin dance"
+    },
+    {
+      "id": "premium-pirotecnia",
+      "description": "Efectos de pirotecnia fría para momentos estelares.",
+      "imageUrl": "https://picsum.photos/seed/pirotecnia/600/800",
+      "imageHint": "fireworks sparklers"
+    },
+    {
+      "id": "premium-drone",
+      "description": "Tomas aéreas cinematográficas de tu evento.",
+      "imageUrl": "https://picsum.photos/seed/drone/600/800",
+      "imageHint": "drone flight"
+    },
+    {
+      "id": "premium-invitacion",
+      "description": "Invitaciones digitales interactivas y elegantes.",
+      "imageUrl": "https://picsum.photos/seed/invitation/600/800",
+      "imageHint": "digital invitation"
+    },
+    {
+      "id": "premium-batucada",
+      "description": "Batucada con botargas y personajes para máxima diversión.",
+      "imageUrl": "https://picsum.photos/seed/party/600/800",
+      "imageHint": "costume party"
+    }
+  ]
+}
