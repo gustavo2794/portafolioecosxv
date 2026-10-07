@@ -39,11 +39,18 @@ Para recomendarte el vals y show ideal, cuéntame:
     const ai = new GoogleGenAI({ apiKey });
 
     // Format prompt conversation
-    const fullPrompt = `${systemPrompt}\n\nHistorial de conversación:\n${(messages || []).map((m: any) => `${m.role === 'user' ? 'Cliente' : 'EcosBot'}: ${m.content}`).join('\n')}\nCliente: ${userMessage}\nEcosBot:`;
+    const messagesHistory = (messages || []).map((m: any) => ({
+      role: m.role === 'user' ? 'user' : 'model',
+      parts: [{ text: m.content }]
+    }));
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: fullPrompt,
+      model: 'gemini-2.0-flash',
+      contents: [
+        { role: 'user', parts: [{ text: systemPrompt }] },
+        ...messagesHistory,
+        { role: 'user', parts: [{ text: userMessage }] }
+      ],
     });
 
     const replyText = response.text || '¡Estamos listos para hacer de tu vals un momento mágico! Puedes escribirnos directamente por WhatsApp para apartar tu fecha.';
