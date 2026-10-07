@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Button } from '../ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 // Define explicitly which images should appear in the gallery
 const galleryImageIds = ['project-sahory', 'project-zayuri', 'project-5', 'project-7', 'hero-background'];
@@ -60,24 +61,32 @@ const ChoreographyCatalog = () => {
           </p>
         </div>
         
-        <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 space-y-4">
           {galleryProjects.map((project, index) => (
-            <div key={project.id} onClick={() => openDialog(index)} className="overflow-hidden cursor-pointer group relative break-inside-avoid">
+            <motion.div 
+              key={project.id} 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => openDialog(index)} 
+              className="overflow-hidden cursor-pointer group relative break-inside-avoid rounded-xl border border-primary/30 shadow-lg shadow-black/50 hover:shadow-primary/20 transition-all duration-300"
+            >
               <Image
                 src={project.imageUrl}
                 alt={project.description}
                 width={500}
                 height={750}
-                className="object-cover w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+                className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-110"
                 data-ai-hint={project.imageHint}
                 priority={index < 2} 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-white font-bold text-lg -translate-y-4 group-hover:translate-y-0 transition-transform">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <h3 className="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   {project.description}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

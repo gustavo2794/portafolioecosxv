@@ -15,6 +15,7 @@ import { format, isBefore, startOfToday } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { Calendar } from '../ui/calendar';
 import { cn } from '@/lib/utils';
+import { motion } from 'motion/react';
 
 const packages = [
     {
@@ -179,11 +180,17 @@ const Pricing = () => {
             Elige el plan perfecto para hacer de tu celebración un evento inolvidable.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {packages.map((pkg) => (
-            <Card
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {packages.map((pkg, index) => (
+            <motion.div
               key={pkg.name}
-              className={`flex flex-col transition-all duration-300 hover:-translate-y-2 ${pkg.bgColor} border ${pkg.borderColor} ${pkg.shadow}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+            <Card
+              className={`flex flex-col transition-all duration-300 hover:shadow-2xl hover:scale-105 h-full ${pkg.bgColor} border ${pkg.borderColor} ${pkg.shadow}`}
             >
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl font-bold font-headline">
@@ -195,14 +202,14 @@ const Pricing = () => {
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start">
                       <Check className="h-5 w-5 text-green-500 mr-2 shrink-0 mt-1" />
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
               <CardFooter>
                 <QuoteDialog
-                  trigger={<Button className="w-full">Solicitar</Button>}
+                  trigger={<Button className="w-full font-bold shadow-lg shadow-primary/20">Solicitar Información</Button>}
                   messageGenerator={(name, date) => {
                     let message = `Hola, mi nombre es ${name}. Estoy interesado(a) en el ${pkg.name}.\n`;
                     if (date) {
@@ -214,6 +221,7 @@ const Pricing = () => {
                 />
               </CardFooter>
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>
