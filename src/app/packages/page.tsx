@@ -6,6 +6,7 @@ import CustomPackageCTA from '@/components/sections/custom-package-cta';
 import { Button } from '@/components/ui/button';
 import { Utensils, Camera, Smartphone, PartyPopper, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import LuxurySection from '@/components/ui/luxury-section';
 
 export default function PackagesPage() {
   return (
@@ -16,7 +17,7 @@ export default function PackagesPage() {
         <Pricing />
 
         {/* Section Intro for Premium Experiences (Non-intrusive, placed right before experiences section) */}
-        <div className="bg-gradient-to-r from-primary/10 via-secondary/30 to-accent/15 border-y border-primary/20 py-8 px-6">
+        <LuxurySection className="!py-12 border-t border-primary/30">
           <div className="container max-w-6xl mx-auto space-y-5">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
               <div className="space-y-1.5">
@@ -26,7 +27,7 @@ export default function PackagesPage() {
                 <h2 className="font-headline text-2xl md:text-3xl font-bold text-primary">
                   Complementa tu Coreografía con Nuestras Experiencias
                 </h2>
-                <p className="text-muted-foreground text-sm max-w-2xl">
+                <p className="text-white/80 text-sm max-w-2xl">
                   Arma un paquete completo con tomas de Dron, Cuadros de Bienvenida, Carrito de Snacks & Shots, Invitaciones Digitales y Batucada con Cabezones.
                 </p>
               </div>
@@ -56,7 +57,7 @@ export default function PackagesPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </LuxurySection>
 
         {/* Premium Experiences Cards */}
         <PremiumAddOns />
