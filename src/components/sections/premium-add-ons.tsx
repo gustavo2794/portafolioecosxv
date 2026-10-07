@@ -1,38 +1,49 @@
 'use client';
 
-import { Sparkles, Camera, Smartphone, PartyPopper } from 'lucide-react';
+import { Utensils, Camera, Smartphone, PartyPopper } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const addOns = [
   {
-    id: 'premium-pirotecnia',
-    title: 'Efectos Visuales FX',
-    icon: Sparkles,
-    description: 'Transformamos los momentos estelares de tu celebración en una experiencia mágica e impactante, envolviendo tu baile en una atmósfera visual que cautivará a todos tus invitados.',
+    id: 'premium-candy-bar',
+    title: 'Carrito de Snacks & Shots',
+    icon: Utensils,
+    description: 'Bebidas refrescantes de bienvenida, barra de botanas con chamoy y dulces selectos en un carrito vintage iluminado.',
+    href: '/packages/candy-bar',
+    imageUrl: '/snack_cart_xv.jpg',
     videoUrl: '', 
+    badgeText: '¡Ver Snacks & Shots!'
   },
   {
     id: 'premium-drone',
-    title: 'Cobertura Drone',
+    title: 'Cobertura Drone & Foto',
     icon: Camera,
-    description: 'Captura la magnitud de tu fiesta desde el cielo con tomas cinematográficas aéreas.',
+    description: 'Cuadros de bienvenida para firmas, photobook de gala y tomas cinematográficas aéreas de tu vals.',
+    href: '/packages/drone-photo',
+    imageUrl: '',
     videoUrl: 'https://res.cloudinary.com/drylg7prb/video/upload/v1783702086/Promo_Drone_1_rqov19.mp4', 
+    badgeText: '¡Ver Cuadros & Dron!'
   },
   {
     id: 'premium-invitacion',
     title: 'Invitación Digital',
     icon: Smartphone,
-    description: 'Sorprende a tus invitados con una invitación interactiva, música y cuenta regresiva personalizada.',
+    description: 'Invitaciones web interactivas con música, confirmación por WhatsApp, mapas GPS y pases QR.',
+    href: '/packages/invitaciones',
+    imageUrl: '/invitacion_digital_xv.jpg',
     videoUrl: '',
+    badgeText: '¡Ver Invitaciones!'
   },
   {
     id: 'premium-batucada',
     title: 'Batucada Ecos',
     icon: PartyPopper,
-    description: 'El momento más explosivo de la fiesta con botargas, cabezones y una energía inigualable.',
+    description: 'El momento más explosivo con personajes cabezones, robot LED, props luminosos y lluvia de confeti.',
+    href: '/packages/batucada',
+    imageUrl: '/batucada_ecos.jpg',
     videoUrl: '',
+    badgeText: '¡Ver Show & Cabezones!'
   },
 ];
 
@@ -66,14 +77,10 @@ export default function PremiumAddOns() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {addOns.map((item) => {
-            const placeholder = PlaceHolderImages.find((img) => img.id === item.id);
-            const isDrone = item.id === 'premium-drone';
-            
-            const cardContent = (
+          {addOns.map((item) => (
+            <Link key={item.id} href={item.href} className="block group">
               <div 
-                key={item.id} 
-                className="group relative overflow-hidden rounded-2xl bg-card/40 backdrop-blur-sm border border-primary/20 transition-all duration-500 hover:border-primary hover:-translate-y-3 aspect-[4/5] shadow-2xl shadow-black/50 cursor-pointer"
+                className="relative overflow-hidden rounded-2xl bg-card/40 backdrop-blur-sm border border-primary/20 transition-all duration-500 group-hover:border-primary group-hover:-translate-y-3 aspect-[4/5] shadow-2xl shadow-black/50 cursor-pointer"
               >
                 <div className="absolute inset-0 z-0">
                   {item.videoUrl ? (
@@ -88,22 +95,21 @@ export default function PremiumAddOns() {
                   ) : (
                     <div className="h-full w-full relative">
                       <Image
-                        src={placeholder?.imageUrl || ''}
+                        src={item.imageUrl}
                         alt={item.title}
                         fill
                         className="object-cover brightness-50 group-hover:brightness-90 transition-all duration-700"
                       />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90" />
                 </div>
 
                 <div className="relative z-10 h-full flex flex-col justify-end p-6 text-white">
-                  {isDrone && (
-                    <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
-                      ¡Ver Paquetes & Foto!
-                    </div>
-                  )}
+                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg group-hover:scale-105 transition-transform">
+                    {item.badgeText}
+                  </div>
+                  
                   <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 backdrop-blur-md border border-primary/30 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-lg">
                     <item.icon className="h-7 w-7" />
                   </div>
@@ -113,26 +119,14 @@ export default function PremiumAddOns() {
                   <p className="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors duration-500">
                     {item.description}
                   </p>
-                  {isDrone && (
-                    <p className="mt-3 text-xs font-bold text-primary underline">
-                      Clic para explorar paquetes y cuadros de firmas →
-                    </p>
-                  )}
+                  <p className="mt-3 text-xs font-bold text-primary group-hover:underline">
+                    Explorar paquetes y opciones →
+                  </p>
                   <div className="mt-4 h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-500" />
                 </div>
               </div>
-            );
-
-            if (isDrone) {
-              return (
-                <Link key={item.id} href="/packages/drone-photo" className="block">
-                  {cardContent}
-                </Link>
-              );
-            }
-
-            return cardContent;
-          })}
+            </Link>
+          ))}
         </div>
       </div>
       
