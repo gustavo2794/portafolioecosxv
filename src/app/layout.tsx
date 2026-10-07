@@ -1,10 +1,10 @@
-
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import { FirebaseClientProvider } from '@/firebase';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
 import './globals.css';
 import FloatingWhatsappButton from '@/components/layout/floating-whatsapp-button';
+import AiAssistantModal from '@/components/layout/ai-assistant-modal';
 import { Analytics } from '@vercel/analytics/next';
 
 const playfairDisplay = Playfair_Display({
@@ -22,7 +22,6 @@ const ptSans = PT_Sans({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
 });
-
 
 export const metadata: Metadata = {
   title: 'Compañia de Danza Ecos del Sur',
@@ -45,6 +44,7 @@ export default function RootLayout({
         <FirebaseClientProvider>
           {children}
           <FloatingWhatsappButton />
+          <AiAssistantModal />
         </FirebaseClientProvider>
         <Toaster />
         <Analytics />
